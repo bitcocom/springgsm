@@ -34,7 +34,33 @@
 			  <div class="card-body">
 			    <h4 class="card-title">BOARD</h4>
 			    <p class="card-text">게시판 리스트</p>
-			   
+				<table class="table table-hover">
+				    <thead>
+				      <tr>
+				        <th>번호</th>
+				        <th>제목</th>
+				        <th>작성자</th>
+				        <th>작성일</th>
+				        <th>조회수</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				      <tr>
+				        <td>1</td>
+				        <td>게시판연습</td>
+				        <td>관리자</td>
+				        <th>2023-03-13</th>
+				        <th>0</th>
+				      </tr>
+				      <tr>
+				        <td>2</td>
+				        <td>게시판연습</td>
+				        <td>박매일</td>
+				        <th>2023-03-13</th>
+				        <th>0</th>
+				      </tr>			     
+				    </tbody>
+				  </table>
 			  </div>
 			</div> 
 		  </div>
