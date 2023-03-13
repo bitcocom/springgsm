@@ -30,7 +30,13 @@
 		    <jsp:include page="left.jsp"/>
 		  </div>
 		  <div class="col-lg-7">
-		    콘텐츠(글쓰기,리스트,상세보기,수정,댓글) 
+			 <div class="card">
+			  <div class="card-body">
+			    <h4 class="card-title">BOARD</h4>
+			    <p class="card-text">게시판 리스트</p>
+			   
+			  </div>
+			</div> 
 		  </div>
 		  <div class="col-lg-3">
 		    <jsp:include page="right.jsp"/>

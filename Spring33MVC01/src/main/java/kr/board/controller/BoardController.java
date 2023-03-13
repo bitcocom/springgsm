@@ -9,8 +9,7 @@ public class BoardController {
 	public String list() {
 		
 		return "";
-	}
-	
+	}	
 	@RequestMapping("/register.do")
     public String register() {
 		
