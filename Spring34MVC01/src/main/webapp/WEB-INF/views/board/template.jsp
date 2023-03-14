@@ -14,7 +14,14 @@
 <body>
  
   <div class="card">
-    <div class="card-header">Header</div>
+    <div class="card-header">
+		<div class="jumbotron jumbotron-fluid">
+		  <div class="container">
+		    <h1>Spring Framework~</h1>
+		    <p>Spring WEB MVC, MySQL, JSP(jQuery,Ajax,JSON)...</p>
+		  </div>
+		</div>    
+    </div>
     <div class="card-body">Content</div> 
     <div class="card-footer">3-4(박매일)</div>
   </div>
