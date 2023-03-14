@@ -22,7 +22,19 @@
 		  </div>
 		</div>    
     </div>
-    <div class="card-body">Content</div> 
+    <div class="card-body">
+	    <div class="row">
+		  <div class="col-2">
+		    로그인화면(left.jsp)
+		  </div>
+		  <div class="col-7">
+		    게시판 콘텐츠(글쓰기, 리스트, 상세보기, 수정하기, 댓글)
+		  </div>
+		  <div class="col-3">
+		    OpenAPI 검색(Kakao OpenAPI:right.jsp)
+		  </div>
+		</div>
+    </div> 
     <div class="card-footer">3-4(박매일)</div>
   </div>
 
