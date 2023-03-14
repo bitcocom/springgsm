@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,13 +28,13 @@
     <div class="card-body">
 	    <div class="row">
 		  <div class="col-2">
-		    로그인화면(left.jsp)
+		    <jsp:include page="left.jsp"/>
 		  </div>
 		  <div class="col-7">
 		    게시판 콘텐츠(글쓰기, 리스트, 상세보기, 수정하기, 댓글)
 		  </div>
 		  <div class="col-3">
-		    OpenAPI 검색(Kakao OpenAPI:right.jsp)
+		    <jsp:include page="right.jsp"/>
 		  </div>
 		</div>
     </div> 
