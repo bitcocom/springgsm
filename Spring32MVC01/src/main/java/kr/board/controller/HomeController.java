@@ -5,9 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
-  
+    // HandlerMapping
 	@RequestMapping("/")
 	public String home() {
-		return "index"; // View
+		return "index"; // index=>/WEB-INF/views/index.jsp:ViewResolver
 	}
 }
