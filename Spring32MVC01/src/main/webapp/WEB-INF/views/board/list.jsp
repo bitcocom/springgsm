@@ -31,13 +31,13 @@
 		     <jsp:include page="left.jsp"/>
 		  </div>
 		  <div class="col-7">
-			 <div class="card">
+		     <div class="card">
 			  <div class="card-body">
 			    <h4 class="card-title">BOARD</h4>
 			    <p class="card-text">???</p>
 		         콘텐츠
 			  </div>
-			</div>
+			 </div>
 		  </div>
 		  <div class="col-3">
 		     <jsp:include page="right.jsp"/>
