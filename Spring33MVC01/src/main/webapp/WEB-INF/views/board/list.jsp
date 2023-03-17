@@ -1,0 +1,75 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+ 
+  <div class="card">
+    <div class="card-header">
+		<div class="jumbotron jumbotron-fluid">
+		  <div class="container">
+		    <h1>Spring Framework~</h1>
+		    <p>Spring WEB MVC, jQuery(Ajax,JSON), MySQL</p>
+		  </div>
+		</div>      
+    </div>
+    <div class="card-body">
+		<div class="row">
+		  <div class="col-2">
+		     <jsp:include page="left.jsp"></jsp:include>
+		  </div>
+		  <div class="col-7">
+			 <div class="card">
+			  <div class="card-body">
+			    <h4 class="card-title">BOARD</h4>
+			    <p class="card-text">게시판 리스트</p>
+			      <table class="table table-bordered table-hover">
+			        <thead>
+			          <tr>
+			            <td>번호</td>
+			            <td>제목</td>
+			            <td>작성자</td>
+			            <td>작성일</td>
+			            <td>조회수</td>
+			          </tr>
+			        </thead>
+			        <tbody>
+			          <tr>
+			            <td>1</td>
+			            <td>스프링게시판 연습</td>
+			            <td>관리자</td>
+			            <td>2023-03-17</td>
+			            <td>0</td>
+			          </tr>
+			          <tr>
+			            <td>2</td>
+			            <td>스프링게시판 연습</td>
+			            <td>이름</td>
+			            <td>2023-03-17</td>
+			            <td>0</td>
+			          </tr>
+			        </tbody>
+			      </table>
+			  </div>
+			</div>  
+		  </div>
+		  <div class="col-3">
+		     <jsp:include page="right.jsp"></jsp:include>
+		  </div>
+		</div>    
+    </div> 
+    <div class="card-footer">
+      광주소프트웨어마이스터고등학교(3-3:이름)
+    </div>
+  </div>
+</body>
+</html>
