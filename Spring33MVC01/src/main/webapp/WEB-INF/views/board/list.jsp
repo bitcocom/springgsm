@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,20 +46,15 @@
 			          </tr>
 			        </thead>
 			        <tbody>
-			          <tr>
-			            <td>1</td>
-			            <td>스프링게시판 연습</td>
-			            <td>관리자</td>
-			            <td>2023-03-17</td>
-			            <td>0</td>
-			          </tr>
-			          <tr>
-			            <td>2</td>
-			            <td>스프링게시판 연습</td>
-			            <td>이름</td>
-			            <td>2023-03-17</td>
-			            <td>0</td>
-			          </tr>
+			          <c:forEach var="vo" items="${list}">
+				          <tr>
+				            <td>${vo.num}</td>
+				            <td>${vo.title}</td>
+				            <td>${vo.writer}</td>
+				            <td>${vo.indate}</td>
+				            <td>${vo.count}</td>
+				          </tr>	
+			          </c:forEach>		         
 			        </tbody>
 			      </table>
 			  </div>
