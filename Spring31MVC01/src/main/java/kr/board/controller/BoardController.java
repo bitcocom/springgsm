@@ -1,6 +1,5 @@
 package kr.board.controller;
 // 게시판 요청(?)을 처리해주는 Controller
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
