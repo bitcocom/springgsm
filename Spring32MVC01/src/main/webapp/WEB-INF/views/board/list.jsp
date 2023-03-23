@@ -46,20 +46,15 @@
 		               </tr>
 		             </thead>
 		             <tbody>
+		             <c:forEach var="vo" items="${list}">
 		               <tr>
-		                 <td>1</td>
-		                 <td>스프링게시판</td>
-		                 <td>관리자</td>
-		                 <td>2023-03-16</td>
-		                 <td>0</td>
+		                 <td>${vo.num}</td>
+		                 <td>${vo.title}</td>
+		                 <td>${vo.writer}</td>
+		                 <td>${vo.indate}</td>
+		                 <td>${vo.count}</td>
 		               </tr>
-		               <tr>
-		                 <td>2</td>
-		                 <td>스프링게시판</td>
-		                 <td>박매일</td>
-		                 <td>2023-03-16</td>
-		                 <td>0</td>
-		               </tr>
+		              </c:forEach> 
 		             </tbody>
 		          </table>
 			  </div>
