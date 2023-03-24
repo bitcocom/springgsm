@@ -51,7 +51,7 @@
 				            <td>${vo.num}</td>
 				            <td>${vo.title}</td>
 				            <td>${vo.writer}</td>
-				            <td>${vo.indate}</td>
+				            <td><fmt:formatDate pattern="yyyy-MM-dd" value="${vo.indate}"/></td>
 				            <td>${vo.count}</td>
 				          </tr>	
 			          </c:forEach>		         

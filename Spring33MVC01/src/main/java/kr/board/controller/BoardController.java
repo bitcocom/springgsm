@@ -14,6 +14,7 @@ import kr.board.entity.Board;
 public class BoardController {
    
 	// /list.do 요청이 오면 처리하는 메서드 정의
+	// HandlerMapping
 	@RequestMapping("/list.do")
 	public String list(Model model) {
 		// Controller에서 View로 데이터를 넘기는 방법
