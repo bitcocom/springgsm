@@ -45,20 +45,15 @@
 				      </tr>
 				    </thead>
 				    <tbody>
+				    <c:forEach var="board" items="${list}">
 				      <tr>
-				        <td>1</td>
-				        <td>게시판연습</td>
-				        <td>관리자</td>
-				        <td>2023-03-13</td>
-				        <td>0</td>
+				        <td>${board.num}</td>
+				        <td>${board.title}</td>
+				        <td>${board.writer}</td>
+				        <td>${board.indate}</td>
+				        <td>${board.count}</td>
 				      </tr>
-				      <tr>
-				        <td>2</td>
-				        <td>게시판연습</td>
-				        <td>박매일</td>
-				        <td>2023-03-13</td>
-				        <td>0</td>
-				      </tr>			     
+				     </c:forEach> 				      		     
 				    </tbody>
 				  </table>
 			  </div>

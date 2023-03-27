@@ -23,7 +23,7 @@ public class BoardController {
 	  list.add(vo1);
 	  list.add(vo2);
 	  list.add(vo3);
-	  model.addAttribute("list", list);
+	  model.addAttribute("list", list);// 객체바인딩
 	  
 	  return "board/list";//WEB-INF/views/board/list.jsp
   }	
