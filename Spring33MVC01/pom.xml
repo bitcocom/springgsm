@@ -137,6 +137,13 @@
             <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/ojdbc-14.jar</systemPath>
         </dependency>
         -->
+        <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+		<dependency>
+		    <groupId>com.zaxxer</groupId>
+		    <artifactId>HikariCP</artifactId>
+		    <version>3.4.5</version>
+		</dependency>
+        
 	</dependencies>
 
 	<build>

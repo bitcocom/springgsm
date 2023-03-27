@@ -1,6 +1,4 @@
 package kr.board.controller;
-
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -32,7 +30,6 @@ public class WeatherAPI {
                 content.append(inputLine);
             }
             in.close();
-            System.out.println(content.toString());
             // Gson 라이브러리를 사용하여 온도를 추출
             JsonObject weatherData = JsonParser.parseString(content.toString()).getAsJsonObject();
             JsonObject mainData = weatherData.getAsJsonObject("main");
