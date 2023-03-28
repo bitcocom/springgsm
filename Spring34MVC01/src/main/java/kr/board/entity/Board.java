@@ -13,5 +13,4 @@ public class Board {
 	private String writer; // 작성자
 	private Date indate; // 작성일 java.util.Date
 	private int count; // 조회수
-	
 }
