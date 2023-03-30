@@ -31,6 +31,6 @@ public class BoardController {
 		list.add(vo);
 		// 객체바인딩
 	    model.addAttribute("list", list);		
-		return "board/list";
+		return "board/list"; // EL(표현식,출력식) : ${list}
 	}
 }
