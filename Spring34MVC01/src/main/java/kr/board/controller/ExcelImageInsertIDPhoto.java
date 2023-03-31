@@ -6,12 +6,14 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.Font;
+import java.awt.font.FontRenderContext;
 import java.awt.image.BufferedImage;
 import java.io.*;
 
 public class ExcelImageInsertIDPhoto {
 
-    public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
         // 콘솔에서 이미지 파일 경로를 입력받습니다.
         System.out.print("이미지 파일 경로를 입력하세요: ");
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -41,34 +43,24 @@ public class ExcelImageInsertIDPhoto {
 
             // 시트를 생성하고 이미지 크기에 맞게 1행 1열 셀의 크기를 조절합니다.
             Sheet sheet = workbook.createSheet("Image Sheet");
-         // 이미지의 너비를 포인트 단위로 변환합니다.
-            double widthInPoints = (newWidth / 96.0) * 72.0; // (1px = 1/96 inches, 1 inch = 72 points)
+        
+         // 4. Create Drawing Object
+            Drawing<?> drawing = sheet.createDrawingPatriarch();
+            ClientAnchor anchor = drawing.createAnchor(0, 0, 0, 0, 0, 0, 1, 1);
+         // 6. Create Picture Object
+            Picture pict = drawing.createPicture(anchor, imageIndex);
 
-            // 문자 '0'의 너비를 고려하여 열 너비를 설정합니다.
-            double defaultCharWidthInPoints = sheet.getDefaultColumnWidth() * 0.5 * 72 / 96; // 기본 열 너비를 포인트 단위로 변환합니다.
-            double widthInChars = widthInPoints / defaultCharWidthInPoints;
-            int widthInUnits = (int) (Math.ceil(widthInChars * 256)); // 엑셀의 열 너비 단위에 맞추기 위해 256을 곱해줍니다.
-            sheet.setColumnWidth(0, (int) widthInChars); // 셀 너비를 설정합니다.
-            
-            float cellHeight = newHeight * 0.75f; // 이미지 높이를 포인트로 변환합니다.
-            sheet.createRow(0).setHeightInPoints(cellHeight); // 셀 높이를 설정합니다.
+            // 7. Set Height of the Row           
+            Row row = sheet.createRow(0);
+            row.setHeightInPoints(newHeight*72/96); // 픽셀을 point로변경
 
-            // 1행 1열 셀에 이미지를 추가합니다.
-            CreationHelper helper = workbook.getCreationHelper();
-            Drawing drawing = sheet.createDrawingPatriarch();
+            // 8. Get Image Width
+            // int imageWidth = pict.getImageDimension().width;
 
-            ClientAnchor anchor = helper.createClientAnchor();
-            anchor.setCol1(0);
-            anchor.setRow1(0);
-            anchor.setDx1(0);
-            anchor.setDy1(0);
-            anchor.setDx2(Units.pixelToEMU(newWidth));
-            anchor.setDx2(Units.pixelToEMU(newHeight));
-            //anchor.setAnchorType(ClientAnchor.AnchorType.MOVE_AND_RESIZE);
+            // 9. Set Column Width
+            int columnWidth = (int) Math.floor(((float) newWidth / (float) 8) * 256);
+            sheet.setColumnWidth(0, columnWidth);
 
-            Picture picture = drawing.createPicture(anchor, imageIndex);
-            picture.resize(); // 이미지 크기를 원본 크기로 유지합니다.
-            
             //picture.resize(); // 이미지 크기를 원본 크기로 유지합니다.
 
             // 엑셀 파일을 저장합니다.
