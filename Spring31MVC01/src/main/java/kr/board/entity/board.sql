@@ -10,5 +10,9 @@ create table board(
 
 insert into board(title, content, writer)
 values('스프링게시판','스프링게시판','박매일');
+insert into board(title, content, writer)
+values('스프링게시판','스프링게시판','관리자');
+insert into board(title, content, writer)
+values('스프링게시판','스프링게시판','홍길동');
 
 select * from board;
