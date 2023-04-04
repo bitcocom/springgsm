@@ -45,37 +45,6 @@
     </repositories>
 
 	<dependencies>
-	
-	 <dependency>
-        <groupId>org.apache.poi</groupId>
-        <artifactId>poi</artifactId>
-        <version>5.2.0</version>
-    </dependency>
-    <dependency>
-        <groupId>org.apache.poi</groupId>
-        <artifactId>poi-ooxml</artifactId>
-        <version>5.2.0</version>
-    </dependency>
-    <!-- iText for PDF -->
-  <dependency>
-    <groupId>com.itextpdf</groupId>
-    <artifactId>itext7-core</artifactId>
-    <version>7.1.16</version>
-    <type>pom</type>
-</dependency>
-    
-	<dependency>
-        <groupId>org.apache.httpcomponents</groupId>
-        <artifactId>httpclient</artifactId>
-        <version>4.5.13</version>
-    </dependency>
-    
-			<dependency>
-		  <groupId>org.jsoup</groupId>
-		  <artifactId>jsoup</artifactId>
-		  <version>1.14.3</version>
-		</dependency>
-	
 		<!-- 표준프레임워크 실행환경 -->
         <dependency>
 		    <groupId>org.egovframe.rte</groupId>
@@ -184,6 +153,13 @@
             <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/ojdbc-14.jar</systemPath>
         </dependency>
         -->
+        <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+		<dependency>
+		    <groupId>com.zaxxer</groupId>
+		    <artifactId>HikariCP</artifactId>
+		    <version>3.4.5</version>
+		</dependency>
+        
 	</dependencies>
 
 	<build>
