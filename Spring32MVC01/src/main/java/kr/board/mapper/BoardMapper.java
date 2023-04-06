@@ -8,5 +8,5 @@ public interface BoardMapper {
     // Connection(연결) - root-context.xml
 	// CRUD
 	public List<Board> getLists(); // 추상메서드
-	
+	public void write(Board vo);
 }

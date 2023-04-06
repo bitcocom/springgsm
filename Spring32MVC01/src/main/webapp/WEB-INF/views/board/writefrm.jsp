@@ -35,7 +35,7 @@
 			  <div class="card-body">
 			    <h4 class="card-title">BOARD</h4>
 			    <p class="card-text">글쓰기</p>
-		         <form action="">
+		         <form action="/sp32/write" method="post">
 		           <table class="table">
 		             <tr>
 		               <td style="width: 100px">제목</td>

@@ -32,4 +32,15 @@ public class BoardController {
 	public String writefrm() {
 		return "board/writefrm"; // writefrm.jsp
 	}
+	@RequestMapping("/write")
+	public String write(Board vo) { // title, content, writer
+		
+		
+		return "";
+	}
 }
+
+
+
+
+
