@@ -31,35 +31,35 @@
 		     <jsp:include page="left.jsp"/>
 		  </div>
 		  <div class="col-7">
-		     <div class="card">
+			 <div class="card">
 			  <div class="card-body">
 			    <h4 class="card-title">BOARD</h4>
-			    <p class="card-text">게시판 리스트</p>
-		          <table class="table table-hover">
-		             <thead>
-		               <tr>
-		                 <th>번호</th>
-		                 <th>제목</th>
-		                 <th>작성자</th>
-		                 <th>작성일</th>
-		                 <th>조회수</th>
-		               </tr>
-		             </thead>
-		             <tbody>
-		             <c:forEach var="vo" items="${list}">
-		               <tr>
-		                 <td>${vo.num}</td>
-		                 <td>${vo.title}</td>
-		                 <td>${vo.writer}</td>
-		                 <td><fmt:formatDate value="${vo.indate}" pattern="yyyy-MM-dd"/></td>
-		                 <td>${vo.count}</td>
-		               </tr>
-		              </c:forEach> 
-		             </tbody>
-		          </table>
-		          <button class="btn btn-primary btn-sm" onclick="location.href='/sp32/writefrm'">글쓰기</button>
+			    <p class="card-text">글쓰기</p>
+		         <form action="">
+		           <table class="table">
+		             <tr>
+		               <td style="width: 100px">제목</td>
+		               <td><input type="text" name="title" class="form-control"></td>
+		             </tr>
+		             <tr>
+		               <td>내용</td>
+		               <td><textarea rows="7" name="content" class="form-control"></textarea></td>
+		             </tr>
+		             <tr>
+		               <td>작성자</td>
+		               <td><input type="text" name="writer" class="form-control"></td>
+		             </tr>
+		             <tr>
+		              <td colspan="2" style="text-align: center;">
+		                 <button type="submit" class="btn btn-primary btn-sm">등록</button>
+		                 <button type="reset" class="btn btn-primary btn-sm">취소</button>
+		                 <button type="button" class="btn btn-primary btn-sm">목록</button>
+		              </td>
+		             </tr>
+		           </table>		         
+		         </form>
 			  </div>
-			 </div>
+			</div>
 		  </div>
 		  <div class="col-3">
 		     <jsp:include page="right.jsp"/>

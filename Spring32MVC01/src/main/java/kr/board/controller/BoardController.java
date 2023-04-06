@@ -28,4 +28,8 @@ public class BoardController {
 	    model.addAttribute("list", list);		
 		return "board/list"; // EL(표현식,출력식) : ${list}
 	}
+	@RequestMapping("/writefrm")
+	public String writefrm() {
+		return "board/writefrm"; // writefrm.jsp
+	}
 }
