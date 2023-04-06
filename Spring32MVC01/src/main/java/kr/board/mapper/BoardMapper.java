@@ -9,6 +9,4 @@ public interface BoardMapper {
 	// CRUD
 	public List<Board> getLists(); // 추상메서드
 	
-	
-	
 }

@@ -3,7 +3,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
@@ -15,14 +17,15 @@
 	  <beans:property name="password" value="com01"/>	
 	</beans:bean>	
 		
-    <beans:bean class="com.zaxxer.hikari.HikariDataSource">
+    <beans:bean id="hikariDataSource" class="com.zaxxer.hikari.HikariDataSource">
        <beans:constructor-arg ref="hikariConfig"/>
     </beans:bean>		
     
     <!-- Spring에서 만들어진 CP을 사용하는 API(SqlSessionFactoryBean) -->    
-    <beans:bean>
-    
+    <beans:bean class="org.mybatis.spring.SqlSessionFactoryBean">
+       <beans:property name="dataSource" ref="hikariDataSource"/>
     </beans:bean>
-		
+	<!-- Mapper interface위치를 설정 -->	
+	<mybatis-spring:scan base-package="kr.board.mapper"/>
 	
 </beans:beans>
