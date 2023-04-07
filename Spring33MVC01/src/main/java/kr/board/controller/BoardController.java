@@ -31,6 +31,11 @@ public class BoardController {
 	
 		return "board/write"; // write.jsp
 	}
-	
+	@RequestMapping("/write")
+	public String write(Board vo) { // title, content, writer -> 파라메터수집(VO)
+		mapper.write(vo); //등록성공
+		//등록이 성공후에는 다시 리스트페이지로 이동
+		return "redirect:/list.do"; // /WEB-INF/views/board//list.do.jsp
+	}
 	
 }
