@@ -26,10 +26,11 @@ public class BoardController {
 		model.addAttribute("list", list);
 		return "board/list"; //->/WEB-INF/views/board/list.jsp:ViewResolver
 	}	
-	@RequestMapping("/register.do")
-    public String register() {
-		
-		return "";
+	@RequestMapping("/writefrm")
+	public String writefrm() {
+	
+		return "board/write"; // write.jsp
 	}
+	
 	
 }
