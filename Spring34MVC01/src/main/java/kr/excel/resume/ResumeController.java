@@ -2,20 +2,21 @@ package kr.excel.resume;
 
 
 import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.util.IOUtils;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
+import org.apache.poi.xssf.usermodel.XSSFClientAnchor;
+import org.apache.poi.xssf.usermodel.XSSFDrawing;
 import org.apache.poi.xssf.usermodel.XSSFRichTextString;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.File;
+import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class ResumeController {
     private ResumeView view;
@@ -56,17 +57,38 @@ public class ResumeController {
         Row dataRow = sheet.createRow(1);
         String photoFilename = personInfo.getPhoto();
         try (InputStream photoStream = new FileInputStream(photoFilename)) {
-            byte[] photoBytes = IOUtils.toByteArray(photoStream);
-            int pictureIndex = workbook.addPicture(photoBytes, Workbook.PICTURE_TYPE_PNG);
-            CreationHelper creationHelper = workbook.getCreationHelper();
-            ClientAnchor anchor = creationHelper.createClientAnchor();
-            anchor.setCol1(0);
-            anchor.setRow1(1);
-            anchor.setCol2(1);
-            anchor.setRow2(2);
-            Drawing<?> drawing = sheet.createDrawingPatriarch();
-            Picture picture = drawing.createPicture(anchor, pictureIndex);
-            picture.resize();
+            // 사진 파일을 읽어들입니다.
+        	BufferedImage originalImage = ImageIO.read(photoStream);
+
+        	// 증명사진 크기로 이미지를 조절합니다. (가로 35mm, 세로 45mm)
+            int newWidth = (int) (35 * 2.83465); // mm 단위를 픽셀 단위로 변환합니다 (1mm = 2.83465px).
+            int newHeight = (int) (45 * 2.83465); // mm 단위를 픽셀 단위로 변환합니다 (1mm = 2.83465px).
+            Image resizedImage = originalImage.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
+            BufferedImage resizedBufferedImage = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_4BYTE_ABGR);
+            Graphics2D g2d = resizedBufferedImage.createGraphics();
+            g2d.drawImage(resizedImage, 0, 0, null);
+            g2d.dispose();
+
+            // 조절된 이미지를 바이트 배열로 변환합니다.
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ImageIO.write(resizedBufferedImage, "png", baos);
+            byte[] imageBytes = baos.toByteArray();
+            int imageIndex = workbook.addPicture(imageBytes, Workbook.PICTURE_TYPE_PNG);
+            
+            // Drawing 객체를 생성하고 이미지를 삽입합니다.
+            XSSFDrawing drawing = (XSSFDrawing) sheet.createDrawingPatriarch();
+            XSSFClientAnchor anchor = new XSSFClientAnchor(0, 0, 0, 0, 0, 1, 1, 2);
+            drawing.createPicture(anchor, imageIndex);
+            
+            // 이미지가 삽입된 행의 높이와 열의 너비를 조정합니다.
+            // 96은 화면의 DPI(Dots Per Inch, 인치당 도트 수) 
+            // Excel에서 셀의 높이는 포인트(point) 단위로 표시(1 포인트는 1/72 인치입니다)
+            dataRow.setHeightInPoints(newHeight*72/96); // 픽셀을 point로변경
+            // 8이란 값은, 엑셀에서 사용되는 기본 문자 폭의 값
+            // 엑셀에서는 한 개의 문자가 차지하는 너비를 1/256 단위로 계산
+            int columnWidth = (int) Math.floor(((float) newWidth / (float) 8) * 256);
+            sheet.setColumnWidth(0, columnWidth);
+            
         } catch (IOException ex) {
             ex.printStackTrace();
         }
