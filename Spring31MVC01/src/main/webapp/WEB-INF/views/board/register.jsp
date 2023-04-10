@@ -50,6 +50,7 @@
 		           </tr>
 		           <tr>
 		             <td colspan="2">
+		               <button type="button" class="btn btn-primary btn-sm" onclick="location.href='list.do'">목록</button>
 		               <button type="submit" class="btn btn-primary btn-sm">등록</button>
 		               <button type="reset" class="btn btn-warning btn-sm">취소</button>		               
 		             </td> 
