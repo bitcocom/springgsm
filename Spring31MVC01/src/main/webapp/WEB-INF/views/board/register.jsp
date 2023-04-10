@@ -30,35 +30,34 @@
 		    <jsp:include page="left.jsp"/>
 		  </div>
 		  <div class="col-lg-7">
-			 <div class="card">
-			  <div class="card-body">
-			    <h4 class="card-title">BOARD</h4>
-			    <p class="card-text">게시판 리스트</p>
-				<table class="table table-hover">
-				    <thead>
-				      <tr>
-				        <th>번호</th>
-				        <th>제목</th>
-				        <th>작성자</th>
-				        <th>작성일</th>
-				        <th>조회수</th>
-				      </tr>
-				    </thead>
-				    <tbody>
-				    <c:forEach var="board" items="${list}">
-				      <tr>
-				        <td>${board.num}</td>
-				        <td>${board.title}</td>
-				        <td>${board.writer}</td>
-				        <td><fmt:formatDate value="${board.indate}" pattern="yyyy-MM-dd"/></td>
-				        <td>${board.count}</td>
-				      </tr>
-				     </c:forEach> 				      		     
-				    </tbody>
-				  </table>
-				  <button class="btn btn-primary btn-sm" onclick="location.href='registerfrm.do'">글쓰기</button>
-			  </div>
-			</div> 
+		    <div class="card">
+		      <div class="card-body">
+		        <h4 class="card-title">BOARD</h4>
+		        <p class="card-text">게시판 글쓰기</p>
+		        <form action="" method="post">
+		        <table class="table table-bordered">
+		           <tr>
+		             <td style="width: 100px">제목</td>
+		             <td><input type="text" name="title" class="form-control"></td>
+		           </tr>
+		           <tr>
+		             <td>내용</td>
+		             <td><textarea rows="7" cols="50" name="content" class="form-control"></textarea></td>
+		           </tr>
+		           <tr>
+		             <td>작성자</td>
+		             <td><input type="text" name="writer" class="form-control"></td>
+		           </tr>
+		           <tr>
+		             <td colspan="2">
+		               <button type="submit" class="btn btn-primary btn-sm">등록</button>
+		               <button type="reset" class="btn btn-warning btn-sm">취소</button>		               
+		             </td> 
+		           </tr>
+		        </table>
+		        </form>
+		      </div>
+		    </div>
 		  </div>
 		  <div class="col-lg-3">
 		    <jsp:include page="right.jsp"/>

@@ -25,4 +25,15 @@ public class BoardController {
 	  
 	  return "board/list";//WEB-INF/views/board/list.jsp
   }	
+  
+  @RequestMapping("/registerfrm.do")
+  public String registerfrm() {
+	  return "board/register"; // register.jsp
+  }
 }
+
+
+
+
+
+
