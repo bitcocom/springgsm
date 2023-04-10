@@ -34,7 +34,7 @@
 		      <div class="card-body">
 		        <h4 class="card-title">BOARD</h4>
 		        <p class="card-text">게시판 글쓰기</p>
-		        <form action="" method="post">
+		        <form action="register.do" method="post">
 		        <table class="table table-bordered">
 		           <tr>
 		             <td style="width: 100px">제목</td>

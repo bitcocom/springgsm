@@ -30,6 +30,13 @@ public class BoardController {
   public String registerfrm() {
 	  return "board/register"; // register.jsp
   }
+  
+  @RequestMapping("/register.do")  // title, content, writer
+  public String register(Board vo) { // 폼에서 넘어온 파라메터 수집(VO)
+	  mapper.register(vo);	 
+	  // 글 등록후에는 다시 리스트페이지로(list.do) 이동
+	  return "redirect:/list.do";
+  }
 }
 
 
