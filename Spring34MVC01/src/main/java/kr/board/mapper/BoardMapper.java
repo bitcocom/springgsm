@@ -10,5 +10,6 @@ public interface BoardMapper {
   
 	// 전체 게시물을 가져오는 메서드 정의
 	public List<Board> getLists(); // 추상메서드
-	
+    // 게시물을 저장하는 메서드 정의
+	public void insert(Board vo);
 }

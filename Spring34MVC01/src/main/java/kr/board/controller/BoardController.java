@@ -32,4 +32,16 @@ public class BoardController { // new BoardController();
 	public String register() {
 		return "board/register"; // register.jsp
 	}
+	
+	@RequestMapping("/insert.do")
+	public String insert(Board vo) {// 파라메터수집(VO)
+		
+		
+		return null;
+	}
 }
+
+
+
+
+

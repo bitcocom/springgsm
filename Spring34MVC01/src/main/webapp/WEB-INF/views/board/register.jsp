@@ -34,7 +34,7 @@
 		    <div class="card-body">
 		       <h4 class="card-title">BOARD</h4>
 		       <p class="card-text">게시판 글쓰기</p>
-		       <form action="">
+		       <form action="insert.do" method="post">
 		         <table class="table table-bordered">
 		           <tr>
 		             <td style="width: 100px">제목</td>
@@ -50,9 +50,9 @@
 		           </tr>
 		           <tr>
 		             <td colspan="2" style="text-align: center;">
-		               <button type="button" class="btn btn-primary btn-sm">목록</button>
-		               <button type="submit" class="btn btn-primary btn-sm">등록</button>
-		               <button type="reset" class="btn btn-primary btn-sm">취소</button>
+		               <button type="button" class="btn btn-success btn-sm" onclick="location.href='list.do'">목록</button>
+		               <button type="submit" class="btn btn-info btn-sm">등록</button>
+		               <button type="reset" class="btn btn-warning btn-sm">취소</button>
 		             </td>
 		           </tr>
 		         </table>
