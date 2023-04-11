@@ -57,6 +57,7 @@
 				      </c:forEach>
 				    </tbody>
 				  </table>
+				  <button class="btn btn-primary btn-sm">글쓰기</button>
 			  </div>
 			</div>		    
 		  </div>
