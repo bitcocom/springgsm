@@ -30,14 +30,14 @@ public class BoardController { // new BoardController();
 	
 	@RequestMapping("/register.do")
 	public String register() {
-		return "board/register"; // register.jsp
+		return "board/register"; // register.jsp : forward
 	}
 	
 	@RequestMapping("/insert.do")
 	public String insert(Board vo) {// 파라메터수집(VO)
-		
-		
-		return null;
+		mapper.insert(vo); // 등록성공
+		// 등록후 다시 리스트페이지로 전환(redirect)
+		return "redirect:/list.do";
 	}
 }
 
