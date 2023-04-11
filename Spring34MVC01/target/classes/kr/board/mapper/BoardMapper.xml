@@ -9,5 +9,9 @@
     insert into board(title, content, writer)
     values(#{title},#{content},#{writer})
  </insert>
+ 
+ <select id="get" parameterType="int" resultType="kr.board.entity.Board">
+   select * from board where num=#{num} 
+ </select>
 
 </mapper>

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.board.entity.Board;
 import kr.board.mapper.BoardMapper;
@@ -38,6 +39,13 @@ public class BoardController { // new BoardController();
 		mapper.insert(vo); // 등록성공
 		// 등록후 다시 리스트페이지로 전환(redirect)
 		return "redirect:/list.do";
+	}
+	
+	@RequestMapping("/get.do")  // ?num=5
+	public String get(@RequestParam("num") int num) {
+		
+		
+		return null;
 	}
 }
 
