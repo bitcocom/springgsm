@@ -57,7 +57,7 @@
 				      </c:forEach>
 				    </tbody>
 				  </table>
-				  <button class="btn btn-primary btn-sm">글쓰기</button>
+				  <button class="btn btn-primary btn-sm" onclick="location.href='register.do'">글쓰기</button>
 			  </div>
 			</div>		    
 		  </div>

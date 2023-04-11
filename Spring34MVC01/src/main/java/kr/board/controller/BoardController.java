@@ -27,4 +27,9 @@ public class BoardController { // new BoardController();
 		// list.jsp 넘겨주는것(ViewResolver)
 		return "board/list"; // /WEB-INF/views/board/list.jsp
 	}
+	
+	@RequestMapping("/register.do")
+	public String register() {
+		return "board/register"; // register.jsp
+	}
 }
