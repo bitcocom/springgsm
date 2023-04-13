@@ -34,30 +34,25 @@
 			 <div class="card">
 			  <div class="card-body">
 			    <h4 class="card-title">BOARD</h4>
-			    <p class="card-text">글쓰기</p>
-		         <form action="/sp32/write" method="post">
-		           <table class="table">
-		             <tr>
-		               <td style="width: 100px">제목</td>
-		               <td><input type="text" name="title" class="form-control"></td>
-		             </tr>
-		             <tr>
-		               <td>내용</td>
-		               <td><textarea rows="7" name="content" class="form-control"></textarea></td>
-		             </tr>
-		             <tr>
-		               <td>작성자</td>
-		               <td><input type="text" name="writer" class="form-control"></td>
-		             </tr>
-		             <tr>
-		              <td colspan="2" style="text-align: center;">
-		                 <button type="submit" class="btn btn-primary btn-sm">등록</button>
-		                 <button type="reset" class="btn btn-primary btn-sm">취소</button>
-		                 <button type="button" class="btn btn-primary btn-sm" onclick="location.href='/sp32/list'">목록</button>
-		              </td>
-		             </tr>
-		           </table>		         
-		         </form>
+			    <p class="card-text">상세보기</p>
+		         <table class="table">
+		           <tr>
+		             <td>제목</td>
+		             <td>${vo.title}</td>
+		           </tr>
+		           <tr>
+		             <td>내용</td>
+		             <td>${vo.content}</td>
+		           </tr>
+		           <tr>
+		             <td>작성자</td>
+		             <td>${vo.writer}</td>
+		           </tr>
+		           <tr>
+		             <td>작성일</td>
+		             <td>${vo.indate}</td>
+		           </tr>
+		         </table>
 			  </div>
 			</div>
 		  </div>
