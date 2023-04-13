@@ -34,13 +34,9 @@ public class BoardController {
 	}
 	@RequestMapping("/write")
 	public String write(Board vo) { // title, content, writer
-		
-		
-		return "";
+		mapper.write(vo); // 등록
+		// 등록 후 다시 리스트페이지(/list)로 이동 : redirect
+		return "redirect:/list";
 	}
 }
-
-
-
-
 
