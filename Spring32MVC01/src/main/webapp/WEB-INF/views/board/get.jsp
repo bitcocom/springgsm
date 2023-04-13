@@ -3,6 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+<% pageContext.setAttribute("newLineChar", "\n"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +43,7 @@
 		           </tr>
 		           <tr>
 		             <td>내용</td>
-		             <td>${vo.content}</td>
+		             <td>${fn:replace(vo.content,newLineChar,"<br/>")}</td>
 		           </tr>
 		           <tr>
 		             <td>작성자</td>
@@ -50,7 +51,7 @@
 		           </tr>
 		           <tr>
 		             <td>작성일</td>
-		             <td>${vo.indate}</td>
+		             <td><fmt:formatDate value="${vo.indate}" pattern="yyyy-MM-dd"/></td>
 		           </tr>
 		         </table>
 			  </div>
