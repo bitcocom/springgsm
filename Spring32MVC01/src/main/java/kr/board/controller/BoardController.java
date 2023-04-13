@@ -38,5 +38,11 @@ public class BoardController {
 		// 등록 후 다시 리스트페이지(/list)로 이동 : redirect
 		return "redirect:/list";
 	}
+	@RequestMapping("/get") // ?num=10
+	public String get(int num, Model model) {
+		Board vo=mapper.get(num);
+		model.addAttribute("vo", vo); // 객체바인딩
+		return "board/get"; // get.jsp
+	}
 }
 

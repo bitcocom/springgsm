@@ -9,4 +9,5 @@ public interface BoardMapper {
 	// CRUD
 	public List<Board> getLists(); // 추상메서드
 	public void write(Board vo);
+	public Board get(int num);
 }
