@@ -44,5 +44,10 @@ public class BoardController {
 		model.addAttribute("vo", vo); // 객체바인딩
 		return "board/get"; // get.jsp
 	}
+	@RequestMapping("/remove") // ?num=10
+	public String remove(int num) {
+        mapper.remove(num);		
+		return "redirect:/list";
+	}
 }
 

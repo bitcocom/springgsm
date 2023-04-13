@@ -38,7 +38,7 @@
 			    <p class="card-text">상세보기</p>
 		         <table class="table">
 		           <tr>
-		             <td>제목</td>
+		             <td style="width: 100px">제목</td>
 		             <td>${vo.title}</td>
 		           </tr>
 		           <tr>
@@ -52,6 +52,14 @@
 		           <tr>
 		             <td>작성일</td>
 		             <td><fmt:formatDate value="${vo.indate}" pattern="yyyy-MM-dd"/></td>
+		           </tr>
+		           <tr>
+		             <td colspan="2" style="text-align: center;">
+		               <button class="btn btn-sm btn-primary">목록</button>
+		               <button class="btn btn-sm btn-primary">답글</button>
+		               <button class="btn btn-sm btn-primary">수정</button>
+		               <button class="btn btn-sm btn-primary" onclick="location.href='/sp32/remove?num=${vo.num}'">삭제</button>
+		             </td>
 		           </tr>
 		         </table>
 			  </div>
