@@ -42,9 +42,14 @@ public class BoardController {
 		Board vo=mapper.get(num);
 		// 객체바인딩
 		model.addAttribute("vo", vo);
-		return "board/get"; // get.jsp
+		return "board/get"; // get.jsp : forward
 	}
-	
+	@RequestMapping("/remove.do") // ?num=10
+	public String remove(int num) {
+	    mapper.remove(num);
+	    // 삭제가 성공후에는 다시 리스트페이지로(/list.do) 전환시키기:redirect
+		return "redirect:/list.do";
+	}
 }
 
 

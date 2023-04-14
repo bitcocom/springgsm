@@ -2,6 +2,8 @@ package kr.board.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
+
 import kr.board.entity.Board;
 
 public interface BoardMapper { // BoardMapper.xml
@@ -12,4 +14,7 @@ public interface BoardMapper { // BoardMapper.xml
    public void write(Board vo);
    // 선택한 게시물정보 1개를 가져오는 메서드
    public Board get(int num);
+   // 선택한 게시물을 삭제하는 메서드
+   @Delete("delete from board where num=#{num}")
+   public void remove(int num);
 }

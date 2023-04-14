@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>   
+<% pageContext.setAttribute("newLineChar", "\n"); %>  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,12 +38,12 @@
 			    <p class="card-text">게시판 상세보기</p>
 			      <table class="table">
 			        <tr>
-			          <td>제목</td>
+			          <td style="width: 100px">제목</td>
 			          <td>${vo.title}</td>
 			        </tr>
 			        <tr>
 			          <td>내용</td>
-			          <td>${vo.content}</td>
+			          <td>${fn:replace(vo.content,newLineChar,"<br/>")}</td>
 			        </tr>
 			        <tr>
 			          <td>작성자</td>
@@ -47,13 +51,13 @@
 			        </tr>
 			        <tr>
 			          <td>작성일</td>
-			          <td>${vo.indate}</td>
+			          <td><fmt:formatDate value="${vo.indate}" pattern="yyyy-MM-dd"/></td>
 			        </tr>
 			        <tr>
 			         <td colspan="2" style="text-align: center;">
-			           <button class="btn btn-primary btn-sm">목록</button>
+			           <button class="btn btn-primary btn-sm" onclick="location.href='/sp03/list.do'">목록</button>
 			           <button class="btn btn-success btn-sm">수정</button>
-			           <button class="btn btn-warning btn-sm">삭제</button>
+			           <button class="btn btn-warning btn-sm" onclick="location.href='/sp03/remove.do?num=${vo.num}'">삭제</button>
 			           <button class="btn btn-info btn-sm">답글</button>
 			         </td>
 			        </tr>
