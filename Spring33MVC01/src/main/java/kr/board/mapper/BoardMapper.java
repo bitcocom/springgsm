@@ -10,4 +10,6 @@ public interface BoardMapper { // BoardMapper.xml
    public List<Board> getList();
    // 게시판 글 등록 메서드
    public void write(Board vo);
+   // 선택한 게시물정보 1개를 가져오는 메서드
+   public Board get(int num);
 }

@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
-<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,30 +31,33 @@
 			 <div class="card">
 			  <div class="card-body">
 			    <h4 class="card-title">BOARD</h4>
-			    <p class="card-text">게시판 리스트</p>
-			      <table class="table table-bordered table-hover">
-			        <thead>
-			          <tr>
-			            <td>번호</td>
-			            <td>제목</td>
-			            <td>작성자</td>
-			            <td>작성일</td>
-			            <td>조회수</td>
-			          </tr>
-			        </thead>			        			        
-			        <tbody>
-			          <c:forEach var="vo" items="${list}">
-				          <tr>
-				            <td>${vo.num}</td>
-				            <td><a href="/sp03/get.do?num=${vo.num}">${vo.title}</a></td>
-				            <td>${vo.writer}</td>
-				            <td><fmt:formatDate pattern="yyyy-MM-dd" value="${vo.indate}"/></td>
-				            <td>${vo.count}</td>
-				          </tr>	
-			          </c:forEach>		         
-			        </tbody>
+			    <p class="card-text">게시판 상세보기</p>
+			      <table class="table">
+			        <tr>
+			          <td>제목</td>
+			          <td>${vo.title}</td>
+			        </tr>
+			        <tr>
+			          <td>내용</td>
+			          <td>${vo.content}</td>
+			        </tr>
+			        <tr>
+			          <td>작성자</td>
+			          <td>${vo.writer}</td>
+			        </tr>
+			        <tr>
+			          <td>작성일</td>
+			          <td>${vo.indate}</td>
+			        </tr>
+			        <tr>
+			         <td colspan="2" style="text-align: center;">
+			           <button class="btn btn-primary btn-sm">목록</button>
+			           <button class="btn btn-success btn-sm">수정</button>
+			           <button class="btn btn-warning btn-sm">삭제</button>
+			           <button class="btn btn-info btn-sm">답글</button>
+			         </td>
+			        </tr>
 			      </table>
-			      <button class="btn btn-primary btn-sm" onclick="location.href='writefrm'">글쓰기</button>
 			  </div>
 			</div>  
 		  </div>

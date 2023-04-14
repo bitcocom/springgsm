@@ -37,5 +37,21 @@ public class BoardController {
 		//등록이 성공후에는 다시 리스트페이지로 이동
 		return "redirect:/list.do"; // /WEB-INF/views/board//list.do.jsp
 	}
+	@RequestMapping("/get.do") // ?num=10
+	public String get(int num, Model model) {
+		Board vo=mapper.get(num);
+		// 객체바인딩
+		model.addAttribute("vo", vo);
+		return "board/get"; // get.jsp
+	}
 	
 }
+
+
+
+
+
+
+
+
+
