@@ -39,7 +39,7 @@ public class BoardController {
   }
   
   @RequestMapping("/get.do") // ?num=10
-  public String get(int num) {
+  public String get(int num, Model model) {
 	  Board vo=mapper.get(num);
 	   
 	  return null;
