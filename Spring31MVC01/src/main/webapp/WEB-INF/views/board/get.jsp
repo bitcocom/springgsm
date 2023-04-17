@@ -36,7 +36,7 @@
 		      <p class="card-text">게시판 상세보기</p>
 		      <table class="table">
 		        <tr>
-		          <td>제목</td>
+		          <td style="width: 100px">제목</td>
 		          <td>${vo.title}</td>
 		        </tr>
 		        <tr>
@@ -53,9 +53,9 @@
 		        </tr>
 		        <tr>
 		         <td colspan="2" align="center">
-		           <button class="btn btn-sm btn-primary">목록</button>
+		           <button class="btn btn-sm btn-primary" onclick="location.href='/s01/list.do'">목록</button>
 		           <button class="btn btn-sm btn-primary">수정</button>
-		           <button class="btn btn-sm btn-primary">삭제</button>
+		           <button class="btn btn-sm btn-primary" onclick="location.href='/s01/remove.do?num=${vo.num}'">삭제</button>
 		           <button class="btn btn-sm btn-primary">답글</button>
 		         </td>
 		        </tr>

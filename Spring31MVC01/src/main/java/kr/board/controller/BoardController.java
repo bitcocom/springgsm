@@ -42,9 +42,21 @@ public class BoardController {
   public String get(int num, Model model) {
 	  Board vo=mapper.get(num);
 	  model.addAttribute("vo", vo); 
-	  return "board/get"; // get.jsp
+	  return "board/get"; // get.jsp : forward
+  }
+  
+  @RequestMapping("/remove.do") // ?num=10
+  public String remove(int num) {
+	  mapper.remove(num);
+	  // 삭제성공후 다시 리스트페이지로 이동 : redirect
+	  return "redirect:/list.do";
   }
 }
+
+
+
+
+
 
 
 

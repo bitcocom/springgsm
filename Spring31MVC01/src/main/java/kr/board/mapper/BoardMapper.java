@@ -12,4 +12,6 @@ public interface BoardMapper {
 	public void register(Board vo);
 	// 선택한 번호에 해당하는 게시글 한개(Board) 가져오기
 	public Board get(int num);
+	// 선택한 번호에 해당하는 게시글을 삭제하기
+	public void remove(int num);
 }

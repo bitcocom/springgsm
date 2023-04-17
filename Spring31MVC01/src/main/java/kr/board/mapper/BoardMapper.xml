@@ -14,4 +14,14 @@
  <select id="get" resultType="kr.board.entity.Board">
    select * from board where num=#{num}
  </select>
+ 
+ <delete id="remove" parameterType="int">
+   delete from board where num=#{num}
+ </delete>
 </mapper>
+
+
+
+
+
+
