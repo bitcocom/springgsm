@@ -37,6 +37,13 @@ public class BoardController {
 	  // 글 등록후에는 다시 리스트페이지로(list.do) 이동
 	  return "redirect:/list.do";
   }
+  
+  @RequestMapping("/get.do") // ?num=10
+  public String get(int num) {
+	  Board vo=mapper.get(num);
+	   
+	  return null;
+  }
 }
 
 

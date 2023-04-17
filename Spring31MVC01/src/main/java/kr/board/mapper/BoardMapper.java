@@ -10,5 +10,6 @@ public interface BoardMapper {
 	public List<Board> getLists();
 	//게시판 글쓰기 메서드
 	public void register(Board vo);
-	
+	// 선택한 번호에 해당하는 게시글 한개(Board) 가져오기
+	public Board get(int num);
 }
