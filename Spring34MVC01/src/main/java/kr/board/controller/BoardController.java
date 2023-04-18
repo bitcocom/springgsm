@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -54,6 +55,14 @@ public class BoardController { // new BoardController();
 		return "redirect:/list.do";
 	}
 	
+	@GetMapping("/update.do") // ?num=10
+	public String update(int num, Model model) {
+		Board vo=mapper.get(num);
+		model.addAttribute("vo", vo);
+		return "board/update"; // update.jsp
+	}
+	
+	//@PostMapping("/update.do")
 }
 
 
