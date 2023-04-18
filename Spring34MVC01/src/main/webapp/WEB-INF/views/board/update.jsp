@@ -49,9 +49,9 @@
 		         </tr>
 		         <tr>
 		           <td colspan="2" align="center">
-		             <button type="button" class="btn btn-primary btn-sm" onclick="location.href='list.do'">목록</button>
-		             <button type="submit" class="btn btn-primary btn-sm">수정</button>
-		             <button type="reset" class="btn btn-primary btn-sm">취소</button>
+		             <button type="button" class="btn btn-secondary btn-sm" onclick="location.href='list.do'">목록</button>
+		             <button type="submit" class="btn btn-secondary btn-sm">수정</button>
+		             <button type="reset" class="btn btn-secondary btn-sm">취소</button>
 		           </td>
 		         </tr>
 		       </table>
