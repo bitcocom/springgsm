@@ -14,5 +14,6 @@ public interface BoardMapper {
 	public void insert(Board vo);
 	//선택한 번호에 해당하는 게시물정보 한개만 가져오는 메서드 정의
     public Board get(int num);
+    public void remove(int num);
 	
 }

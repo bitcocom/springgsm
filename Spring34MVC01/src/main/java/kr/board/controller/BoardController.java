@@ -47,6 +47,13 @@ public class BoardController { // new BoardController();
 		model.addAttribute("vo",vo); //객체바인딩
 		return "board/get"; // get.jsp : forward
 	}
+	
+	@RequestMapping("/remove.do") // ?num="20"
+	public String remove(int num) {
+        mapper.remove(num);        
+		return "redirect:/list.do";
+	}
+	
 }
 
 
