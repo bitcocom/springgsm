@@ -2,7 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
-<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%
+   pageContext.setAttribute("newLineChar", "\n");
+%> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,14 +37,14 @@
 		    <div class="card-body">
 		       <h4 class="card-title">BOARD</h4>
 		       <p class="card-text">게시판 상세보기</p>
-		         <table class="table">
+		         <table class="table table-bordered">
 		           <tr>
-		             <td>제목</td>
+		             <td style="width: 100px">제목</td>
 		             <td>${vo.title}</td>
 		           </tr>
 		           <tr>
 		             <td>내용</td>
-		             <td>${vo.content}</td>
+		             <td>${fn:replace(vo.content,newLineChar,"<br/>")}</td>
 		           </tr>
 		           <tr>
 		             <td>작성자</td>
