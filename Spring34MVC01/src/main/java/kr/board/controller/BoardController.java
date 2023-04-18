@@ -42,10 +42,10 @@ public class BoardController { // new BoardController();
 	}
 	
 	@RequestMapping("/get.do")  // ?num=5
-	public String get(@RequestParam("num") int num) {
-		
-		
-		return null;
+	public String get(@RequestParam("num") int num, Model model) {
+	    Board vo=mapper.get(num);
+		model.addAttribute("vo",vo); //객체바인딩
+		return "board/get"; // get.jsp : forward
 	}
 }
 
