@@ -57,7 +57,7 @@
 		              </c:forEach> 
 		             </tbody>
 		          </table>
-		          <button class="btn btn-primary btn-sm" onclick="location.href='/sp32/writefrm'">글쓰기</button>
+		          <button class="btn btn-secondary btn-sm" onclick="location.href='/sp32/writefrm'">글쓰기</button>
 			  </div>
 			 </div>
 		  </div>
