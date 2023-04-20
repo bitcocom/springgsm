@@ -7,22 +7,16 @@
     <div class="card-body">
        <h4 class="card-title">GUEST</h4>
        <p class="coard-text">회원님! Welcome</p>
-       <form action="">
-          <table>
-             <tr>
-               <td>ID</td>
-               <td><input type="text" name="memId" class="form-control"/></td>
-             </tr>
-             <tr>
-               <td>PW</td>
-               <td><input type="password" name="memPwd" class="form-control"/></td>
-             </tr>
-             <tr>
-               <td colspan="2">
-                 <button type="submit" class="btn btn-sm btn-secondary form-control">로그인</button>
-               </td>
-             </tr>
-          </table>
+       <form action="스프링보안" method="post">
+           <div class="form-group">
+             <label>ID</label>
+             <input type="text" name="memId" class="form-control"/>
+           </div>
+            <div class="form-group">
+             <label>PWD</label>
+             <input type="password" name="memPwd" class="form-control"/>
+           </div>         
+           <button type="submit" class="btn btn-sm btn-secondary form-control">로그인</button>
        </form>
     </div>
 </div>  
