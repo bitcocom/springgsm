@@ -15,4 +15,6 @@ public interface BoardMapper {
 	
 	@Delete("delete from board where num=#{num}")
 	public void remove(int num);
+	
+	public void update(Board vo);
 }

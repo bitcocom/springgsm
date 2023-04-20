@@ -55,6 +55,14 @@ public class BoardController {
 		model.addAttribute("vo", vo);
 		return "board/update"; // update.jsp
 	}
-	
+	@RequestMapping("/update") // num, title, content
+	public String update(Board vo) {
+		mapper.update(vo);
+		// 수정이 성공된 후에 다시 /list, /get
+		return "redirect:/list";
+	}
 	
 }
+
+
+

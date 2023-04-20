@@ -35,15 +35,23 @@
 			  <div class="card-body">
 			    <h4 class="card-title">BOARD</h4>
 			    <p class="card-text">게시판 수정</p>
-		         <form action="">
+		         <form action="/sp32/update" method="post">
+		            <input type="hidden" name="num" value="${vo.num}"/> 
 		            <table class="table">
 		               <tr>
 		                 <td>제목</td>
-		                 <td><input type="text" value="${vo.title}" class="form-control"/></td>
+		                 <td><input type="text" value="${vo.title}" name="title" class="form-control"/></td>
 		               </tr>
 		               <tr>
 		                 <td>내용</td>
-		                 <td><textarea rows="10" class="form-control">${vo.content}</textarea></td>
+		                 <td><textarea rows="10" name="content" class="form-control">${vo.content}</textarea></td>
+		               </tr>
+		               <tr>
+		                 <td colspan="2" style="text-align: center;">
+		                   <button type="button" class="btn btn-sm btn-primary" onclick="location.href='/sp32/list'">목록</button>
+		                   <button type="submit" class="btn btn-sm btn-primary">수정</button>
+		                   <button type="reset" class="btn btn-sm btn-primary">취소</button>
+		                 </td>
 		               </tr>
 		            </table>
 		         </form>
