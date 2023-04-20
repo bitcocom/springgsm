@@ -3,6 +3,7 @@ package kr.board.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Update;
 
 import kr.board.entity.Board;
 
@@ -17,4 +18,11 @@ public interface BoardMapper {
 	public void remove(int num);
 	
 	public void update(Board vo);
+	
+	@Update("update board set count=count+1 where num=#{num}")
+    public void count(int num);	
 }
+
+
+
+
