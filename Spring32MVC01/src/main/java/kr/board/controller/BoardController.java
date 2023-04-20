@@ -49,4 +49,12 @@ public class BoardController {
         mapper.remove(num);		
 		return "redirect:/list";
 	}
+	@RequestMapping("/updatefrm") // ?num=10
+	public String updatefrm(int num, Model model) {
+		Board vo=mapper.get(num);
+		model.addAttribute("vo", vo);
+		return "board/update"; // update.jsp
+	}
+	
+	
 }

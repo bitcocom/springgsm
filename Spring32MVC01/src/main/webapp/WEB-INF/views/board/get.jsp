@@ -55,9 +55,9 @@
 		           </tr>
 		           <tr>
 		             <td colspan="2" style="text-align: center;">
-		               <button class="btn btn-sm btn-primary">목록</button>
+		               <button class="btn btn-sm btn-primary" onclick="location.href='/sp32/list'">목록</button>
 		               <button class="btn btn-sm btn-primary">답글</button>
-		               <button class="btn btn-sm btn-primary">수정</button>
+		               <button class="btn btn-sm btn-primary" onclick="location.href='/sp32/updatefrm?num=${vo.num}'">수정</button>
 		               <button class="btn btn-sm btn-primary" onclick="location.href='/sp32/remove?num=${vo.num}'">삭제</button>
 		             </td>
 		           </tr>
