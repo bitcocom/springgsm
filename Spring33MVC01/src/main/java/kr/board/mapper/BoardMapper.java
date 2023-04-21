@@ -17,4 +17,9 @@ public interface BoardMapper { // BoardMapper.xml
    // 선택한 게시물을 삭제하는 메서드
    @Delete("delete from board where num=#{num}")
    public void remove(int num);
+   public void update(Board vo);
 }
+
+
+
+

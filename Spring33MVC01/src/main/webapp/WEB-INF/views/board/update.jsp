@@ -35,6 +35,8 @@
 			  <div class="card-body">
 			    <h4 class="card-title">BOARD</h4>
 			    <p class="card-text">게시판 수정하기</p>
+			      <form action="/sp03/update.do" method="post">
+			       <input type="hidden" name="num" value="${vo.num}"/>
 			      <table class="table">
 			         <tr>
 			           <td style="width: 100px">제목</td>
@@ -46,12 +48,13 @@
 			         </tr>
 			         <tr>
 			           <td colspan="2" style="text-align: center;">
-			              <button class="btn btn-primary btn-sm">목록</button>
-			              <button class="btn btn-primary btn-sm">수정</button>
-			              <button class="btn btn-primary btn-sm">취소</button>			            
+			              <button type="button" class="btn btn-primary btn-sm">목록</button>
+			              <button type="submit" class="btn btn-primary btn-sm">수정</button>
+			              <button type="reset" class="btn btn-primary btn-sm">취소</button>			            
 			           </td>
 			         </tr>
 			      </table>
+			      </form>
 			  </div>
 			</div>  
 		  </div>
