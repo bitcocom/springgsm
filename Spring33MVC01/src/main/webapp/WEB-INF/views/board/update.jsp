@@ -2,8 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
-<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>   
-<% pageContext.setAttribute("newLineChar", "\n"); %>  
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>     
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,32 +34,23 @@
 			 <div class="card">
 			  <div class="card-body">
 			    <h4 class="card-title">BOARD</h4>
-			    <p class="card-text">게시판 상세보기</p>
+			    <p class="card-text">게시판 수정하기</p>
 			      <table class="table">
-			        <tr>
-			          <td style="width: 100px">제목</td>
-			          <td>${vo.title}</td>
-			        </tr>
-			        <tr>
-			          <td>내용</td>
-			          <td>${fn:replace(vo.content,newLineChar,"<br/>")}</td>
-			        </tr>
-			        <tr>
-			          <td>작성자</td>
-			          <td>${vo.writer}</td>
-			        </tr>
-			        <tr>
-			          <td>작성일</td>
-			          <td><fmt:formatDate value="${vo.indate}" pattern="yyyy-MM-dd"/></td>
-			        </tr>
-			        <tr>
-			         <td colspan="2" style="text-align: center;">
-			           <button class="btn btn-primary btn-sm" onclick="location.href='/sp03/list.do'">목록</button>
-			           <button class="btn btn-success btn-sm" onclick="location.href='/sp03/update.do?num=${vo.num}'">수정</button>
-			           <button class="btn btn-warning btn-sm" onclick="location.href='/sp03/remove.do?num=${vo.num}'">삭제</button>
-			           <button class="btn btn-info btn-sm">답글</button>
-			         </td>
-			        </tr>
+			         <tr>
+			           <td style="width: 100px">제목</td>
+			           <td><input type="text" name="title" value="${vo.title}" class="form-control"/></td>
+			         </tr>
+			         <tr>
+			           <td>내용</td>
+			           <td><textarea rows="10" name="content" class="form-control">${vo.content}</textarea></td>
+			         </tr>
+			         <tr>
+			           <td colspan="2" style="text-align: center;">
+			              <button class="btn btn-primary btn-sm">목록</button>
+			              <button class="btn btn-primary btn-sm">수정</button>
+			              <button class="btn btn-primary btn-sm">취소</button>			            
+			           </td>
+			         </tr>
 			      </table>
 			  </div>
 			</div>  

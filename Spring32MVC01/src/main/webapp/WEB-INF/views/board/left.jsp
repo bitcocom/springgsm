@@ -9,11 +9,11 @@
        <p class="coard-text">회원님! Welcome</p>
        <form action="스프링보안" method="post">
            <div class="form-group">
-             <label>ID</label>
+             <label>아이디</label>
              <input type="text" name="memId" class="form-control"/>
            </div>
             <div class="form-group">
-             <label>PWD</label>
+             <label>패스워드</label>
              <input type="password" name="memPwd" class="form-control"/>
            </div>         
            <button type="submit" class="btn btn-sm btn-secondary form-control">로그인</button>

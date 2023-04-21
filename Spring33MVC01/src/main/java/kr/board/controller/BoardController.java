@@ -50,6 +50,13 @@ public class BoardController {
 	    // 삭제가 성공후에는 다시 리스트페이지로(/list.do) 전환시키기:redirect
 		return "redirect:/list.do";
 	}
+	@RequestMapping("/update.do") // ?num=10
+	public String update(int num, Model model) {
+		Board vo=mapper.get(num);
+		model.addAttribute("vo", vo);
+		return "board/update"; // update.jsp(수정화면)
+	}
+	
 }
 
 
