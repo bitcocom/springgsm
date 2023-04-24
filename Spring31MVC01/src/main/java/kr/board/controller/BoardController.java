@@ -51,6 +51,12 @@ public class BoardController {
 	  // 삭제성공후 다시 리스트페이지로 이동 : redirect
 	  return "redirect:/list.do";
   }
+  @RequestMapping("/update.do") // ?num=10
+  public String update(int num, Model model) {
+	  Board vo=mapper.get(num);
+	  model.addAttribute("vo", vo);
+	  return "board/update"; // update.jsp
+  }
 }
 
 

@@ -44,6 +44,8 @@ public class BoardController {
 		Board vo=mapper.get(num);
 		// 객체바인딩
 		model.addAttribute("vo", vo);
+		// 조회수 누적
+		mapper.count(num);
 		return "board/get"; // get.jsp : forward
 	}
 	@RequestMapping("/remove.do") // ?num=10

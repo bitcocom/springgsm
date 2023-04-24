@@ -3,7 +3,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<% pageContext.setAttribute("newLineChar", "\n"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,35 +30,22 @@
 		    <jsp:include page="left.jsp"/>
 		  </div>
 		  <div class="col-lg-7">
-		    <div class="card-body">
+		    <div class="card">
 		      <h4 class="card-title">BOARD</h4>
-		      <p class="card-text">게시판 상세보기</p>
-		      <table class="table">
-		        <tr>
-		          <td style="width: 100px">제목</td>
-		          <td>${vo.title}</td>
-		        </tr>
-		        <tr>
-		          <td>내용</td>
-		          <td>${fn:replace(vo.content,newLineChar,"<br/>")}</td>
-		        </tr>
-		        <tr>
-		          <td>작성자</td>
-		          <td>${vo.writer}</td>
-		        </tr>
-		        <tr>
-		          <td>작성일</td>
-		          <td><fmt:formatDate value="${vo.indate}" pattern="yyyy-MM-dd"/></td>
-		        </tr>
-		        <tr>
-		         <td colspan="2" align="center">
-		           <button class="btn btn-sm btn-primary" onclick="location.href='/s01/list.do'">목록</button>
-		           <button class="btn btn-sm btn-primary" onclick="location.href='/s01/update.do?num=${vo.num}'">수정</button>
-		           <button class="btn btn-sm btn-primary" onclick="location.href='/s01/remove.do?num=${vo.num}'">삭제</button>
-		           <button class="btn btn-sm btn-primary">답글</button>
-		         </td>
-		        </tr>
-		      </table>
+		      <p class="card-text">게시판 수정하기</p>
+		        <form action="" method="post">
+		           <div class="form-group">
+		             <label>제목:</label>
+		             <input type="text" name="title" value="${vo.title}" class="form-control"/>
+		           </div>
+		           <div class="form-group">
+		             <label>내용:</label>
+		             <textarea rows="10" name="content" class="form-control">${vo.content}</textarea>
+		           </div>
+		           <button class="btn btn-sm btn-primary">목록</button>
+		           <button class="btn btn-sm btn-primary">수정</button>
+		           <button class="btn btn-sm btn-primary">취소</button>
+		        </form>
 		    </div>
 		  </div>
 		  <div class="col-lg-3">
