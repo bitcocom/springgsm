@@ -64,7 +64,8 @@ public class BoardController {
 	  mapper.update(vo);
 	  // 수정 성공 후 다시 리스트페이지로 이동(/list.do)
 	  // 수정 성공 후 다시 상세보기페이지로 이동(/get.do?num=10)
-	  return "redirect:/list.do";
+	  //return "redirect:/list.do";
+	  return "redirect:/get.do?num="+vo.getNum();
   }
   
 }
