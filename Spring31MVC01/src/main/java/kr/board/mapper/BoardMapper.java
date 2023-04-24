@@ -2,6 +2,9 @@ package kr.board.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Update;
+
 import kr.board.entity.Board;
 
 public interface BoardMapper {
@@ -16,6 +19,9 @@ public interface BoardMapper {
 	public void remove(int num);
 	// 선택한 번호에 해당하는 게시글을 수정하기
 	public void update(Board vo);
+	// 선택한 게시물을 1씩 증가하기
+	@Update("update board set count=count+1 where num=#{num}")
+	public void count(int num);
 }
 
 

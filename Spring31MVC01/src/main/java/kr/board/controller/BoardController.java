@@ -44,6 +44,8 @@ public class BoardController {
   public String get(int num, Model model) {
 	  Board vo=mapper.get(num);
 	  model.addAttribute("vo", vo); 
+	  // 조회수 누적
+	   mapper.count(num);
 	  return "board/get"; // get.jsp : forward
   }
   
