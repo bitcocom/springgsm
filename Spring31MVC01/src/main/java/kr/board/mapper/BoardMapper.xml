@@ -18,6 +18,12 @@
  <delete id="remove" parameterType="int">
    delete from board where num=#{num}
  </delete>
+ 
+ <update id="update" parameterType="kr.board.entity.Board">
+   update board set title=#{title}, content=#{content}
+   where num=#{num}
+ </update>
+
 </mapper>
 
 

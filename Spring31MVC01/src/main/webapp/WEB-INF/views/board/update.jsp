@@ -33,7 +33,8 @@
 		    <div class="card">
 		      <h4 class="card-title">BOARD</h4>
 		      <p class="card-text">게시판 수정하기</p>
-		        <form action="" method="post">
+		        <form action="/s01/update.do" method="post">
+		           <input type="hidden" name="num" value="${vo.num}"/> 
 		           <div class="form-group">
 		             <label>제목:</label>
 		             <input type="text" name="title" value="${vo.title}" class="form-control"/>
@@ -42,9 +43,9 @@
 		             <label>내용:</label>
 		             <textarea rows="10" name="content" class="form-control">${vo.content}</textarea>
 		           </div>
-		           <button class="btn btn-sm btn-primary">목록</button>
-		           <button class="btn btn-sm btn-primary">수정</button>
-		           <button class="btn btn-sm btn-primary">취소</button>
+		           <button type="button" class="btn btn-sm btn-primary">목록</button>
+		           <button type="submit" class="btn btn-sm btn-primary">수정</button>
+		           <button type="reset" class="btn btn-sm btn-primary">취소</button>
 		        </form>
 		    </div>
 		  </div>

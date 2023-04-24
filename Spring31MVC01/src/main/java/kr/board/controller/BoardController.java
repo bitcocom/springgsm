@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 // 게시판 요청(?)을 처리해주는 Controller
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.board.entity.Board;
@@ -51,12 +53,20 @@ public class BoardController {
 	  // 삭제성공후 다시 리스트페이지로 이동 : redirect
 	  return "redirect:/list.do";
   }
-  @RequestMapping("/update.do") // ?num=10
+  @GetMapping("/update.do") // ?num=10
   public String update(int num, Model model) {
 	  Board vo=mapper.get(num);
 	  model.addAttribute("vo", vo);
 	  return "board/update"; // update.jsp
   }
+  @PostMapping("/update.do") // num, title, content
+  public String update(Board vo) {
+	  mapper.update(vo);
+	  // 수정 성공 후 다시 리스트페이지로 이동(/list.do)
+	  // 수정 성공 후 다시 상세보기페이지로 이동(/get.do?num=10)
+	  return "redirect:/list.do";
+  }
+  
 }
 
 

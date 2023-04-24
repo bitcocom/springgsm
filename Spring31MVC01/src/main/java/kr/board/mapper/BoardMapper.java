@@ -14,4 +14,10 @@ public interface BoardMapper {
 	public Board get(int num);
 	// 선택한 번호에 해당하는 게시글을 삭제하기
 	public void remove(int num);
+	// 선택한 번호에 해당하는 게시글을 수정하기
+	public void update(Board vo);
 }
+
+
+
+
