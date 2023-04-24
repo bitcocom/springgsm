@@ -43,7 +43,7 @@
 		             <label>내용:</label>
 		             <textarea rows="10" name="content" class="form-control">${vo.content}</textarea>
 		           </div>
-		           <button type="button" class="btn btn-sm btn-primary">목록</button>
+		           <button type="button" class="btn btn-sm btn-primary" onclick="location.href='/s01/list.do'">목록</button>
 		           <button type="submit" class="btn btn-sm btn-primary">수정</button>
 		           <button type="reset" class="btn btn-sm btn-primary">취소</button>
 		        </form>
