@@ -21,3 +21,15 @@ values('스프링 게시판 만들기','스프링 게시판 만들기','홍길�
 
 select * from board;
 
+create table member(
+  idx int auto_increment primary key,
+  username varchar(255) not null unique,
+  password varchar(255) not null,
+  name varchar(255) not null,
+  email varchar(255) not null unique
+);
+
+
+
+
+
