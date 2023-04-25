@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Update;
 
 import kr.board.entity.Board;
 // BoardMapper interface <----> SQL Mapper XML file
+import kr.board.entity.Member;
 public interface BoardMapper {
   
 	// 전체 게시물을 가져오는 메서드 정의
@@ -22,6 +23,8 @@ public interface BoardMapper {
     // 선택한 게시물의 조회수를 누적
     @Update("update board set count=count+1 where num=#{num}")
     public void count(int num);
+    // 아이디와 비밀번호에 해당하는 사용자가 있는지 처리
+    public Member login(Member vo);
 }
 
 

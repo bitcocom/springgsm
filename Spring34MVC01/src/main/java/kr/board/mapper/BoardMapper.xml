@@ -19,6 +19,10 @@
    delete from board where num=#{num}
  </delete>
  
+ <select id="login" parameterType="kr.board.entity.Member" 
+                    resultType="kr.board.entity.Member">
+   select * from member where username=#{username} and password=#{password}
+ </select>
 </mapper>
 
 

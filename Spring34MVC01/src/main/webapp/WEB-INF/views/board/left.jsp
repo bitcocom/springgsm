@@ -5,7 +5,7 @@
   <div class="card-body">
     <h4 class="card-title">GUEST</h4>
     <p class="card-text">회원님! Welcome</p>
-    <form action="">
+    <form action="login.do" method="post">
        <div class="form-group">
          <label>아이디:</label>
          <input type="text" class="form-control" name="username"/>
