@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.board.entity.Board;
 import kr.board.mapper.BoardMapper;
@@ -47,6 +48,8 @@ public class BoardController { // new BoardController();
 	public String get(@RequestParam("num") int num, Model model) {
 	    Board vo=mapper.get(num);
 		model.addAttribute("vo",vo); //객체바인딩
+		//조회수 누적
+		mapper.count(num);
 		return "board/get"; // get.jsp : forward
 	}
 	
@@ -63,11 +66,12 @@ public class BoardController { // new BoardController();
 		return "board/update"; // update.jsp
 	}
 	@PostMapping("/update.do") // num, title, content : VO(파라메터수집)
-	public String update(Board vo) {
+	public String update(Board vo, RedirectAttributes rttr) {
 		mapper.update(vo);
 		// 수정후 다시 리스트페이지로 이동(/list.do)
 		// 수정후 다시 상세보기페이지로 이동(/get.do?num=10)
-		return "redirect:/list.do";
+		rttr.addAttribute("num", vo.getNum()); // ?num=10
+		return "redirect:/get.do"; // ?num=10
 	}
 }
 

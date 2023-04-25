@@ -19,6 +19,9 @@ public interface BoardMapper {
 	// 선택한 번호에 해당하는 게시물의 제목,내용을 수정하는 메서드 정의
     @Update("update board set title=#{title}, content=#{content} where num=#{num}")
     public void update(Board vo);
+    // 선택한 게시물의 조회수를 누적
+    @Update("update board set count=count+1 where num=#{num}")
+    public void count(int num);
 }
 
 
