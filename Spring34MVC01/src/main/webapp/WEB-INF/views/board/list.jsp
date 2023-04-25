@@ -27,10 +27,10 @@
     </div>
     <div class="card-body">
 	    <div class="row">
-		  <div class="col-2">
+		  <div class="col-lg-2">
 		    <jsp:include page="left.jsp"/>
 		  </div>
-		  <div class="col-7">
+		  <div class="col-lg-7">
 			<div class="card">
 			  <div class="card-body">
 			    <h4 class="card-title">BOARD</h4>
@@ -61,7 +61,7 @@
 			  </div>
 			</div>		    
 		  </div>
-		  <div class="col-3">
+		  <div class="col-lg-3">
 		    <jsp:include page="right.jsp"/>
 		  </div>
 		</div>
