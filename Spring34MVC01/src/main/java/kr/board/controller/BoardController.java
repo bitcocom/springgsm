@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -61,8 +62,13 @@ public class BoardController { // new BoardController();
 		model.addAttribute("vo", vo);
 		return "board/update"; // update.jsp
 	}
-	
-	//@PostMapping("/update.do")
+	@PostMapping("/update.do") // num, title, content : VO(파라메터수집)
+	public String update(Board vo) {
+		mapper.update(vo);
+		// 수정후 다시 리스트페이지로 이동(/list.do)
+		// 수정후 다시 상세보기페이지로 이동(/get.do?num=10)
+		return "redirect:/list.do";
+	}
 }
 
 

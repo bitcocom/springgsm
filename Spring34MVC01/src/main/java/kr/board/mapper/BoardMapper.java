@@ -3,6 +3,7 @@ package kr.board.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Update;
 
 import kr.board.entity.Board;
 // BoardMapper interface <----> SQL Mapper XML file
@@ -15,5 +16,12 @@ public interface BoardMapper {
 	//선택한 번호에 해당하는 게시물정보 한개만 가져오는 메서드 정의
     public Board get(int num);
     public void remove(int num);
-	
+	// 선택한 번호에 해당하는 게시물의 제목,내용을 수정하는 메서드 정의
+    @Update("update board set title=#{title}, content=#{content} where num=#{num}")
+    public void update(Board vo);
 }
+
+
+
+
+

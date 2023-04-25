@@ -34,6 +34,8 @@
 		    <div class="card-body">
 		      <h4 class="card-title">BOARD</h4>
 		      <p class="card-text">게시판 수정하기</p>
+		       <form action="update.do" method="post">
+		       <input type="hidden" name="num" value="${vo.num}"/>
 		       <table class="table table-bordered">
 		         <tr>
 		           <td>제목</td>
@@ -41,7 +43,7 @@
 		         </tr>
 		         <tr>
 		           <td>내용</td>
-		           <td><textarea rows="10" class="form-control" name="content"></textarea></td>
+		           <td><textarea rows="10" class="form-control" name="content">${vo.content}</textarea></td>
 		         </tr>
 		         <tr>
 		           <td>작성자</td>
@@ -55,6 +57,7 @@
 		           </td>
 		         </tr>
 		       </table>
+		       </form>
 		    </div>		    
 		  </div>
 		  <div class="col-3">
