@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Update;
 
 import kr.board.entity.Board;
+import kr.board.entity.Member;
 
 public interface BoardMapper {
     // Connection(연결) - root-context.xml
@@ -21,6 +22,8 @@ public interface BoardMapper {
 	
 	@Update("update board set count=count+1 where num=#{num}")
     public void count(int num);	
+	
+	public Member login(Member vo);
 }
 
 

@@ -7,7 +7,7 @@
     <div class="card-body">
        <h4 class="card-title">GUEST</h4>
        <p class="coard-text">회원님! Welcome</p>
-       <form action="" method="post">
+       <form action="/sp32/login" method="post">
            <div class="form-group">
              <label>아이디</label>
              <input type="text" name="username" class="form-control"/>
