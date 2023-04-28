@@ -5,9 +5,10 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <div class="card" style="min-height: 500px; max-height: 1000px">
   <div class="card-body">
+    <c:if test="${empty mvo}">
     <h4 class="card-title">GUEST</h4>
     <p class="card-text">회원님! Welcome</p>
-     <form action="/sp03/login" method="post">
+     <form action="/sp03/login.do" method="post">
         <div class="form-group">
            <label>아이디</label>
            <input type="text" name="username" class="form-control"/>
@@ -18,5 +19,7 @@
         </div>       
         <button class="btn btn-info btn-sm form-control">로그인</button>
      </form>
+     </c:if>
+     
   </div>
 </div>    

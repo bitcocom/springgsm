@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Update;
 
 import kr.board.entity.Board;
+import kr.board.entity.Member;
 
 public interface BoardMapper { // BoardMapper.xml
    // DB연결(root-context.xml)
@@ -22,6 +23,9 @@ public interface BoardMapper { // BoardMapper.xml
    // 조회수 증가 메서드
    @Update("update board set count=count+1 where num=#{num}")
    public void count(int num);
+   
+   // 회원 로그인처리
+   public Member login(Member vo);
 }
 
 
