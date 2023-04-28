@@ -23,4 +23,12 @@ public class MemberController {
 		}
 		return "redirect:/list.do";
 	}	
+	@RequestMapping("/logout.do")
+	public String logout(HttpSession session) {
+		session.invalidate();//세션 무효화(로그아웃)
+		return "redirect:/list.do";
+	}
 }
+
+
+

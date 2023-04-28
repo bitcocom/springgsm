@@ -20,6 +20,18 @@
         <button class="btn btn-info btn-sm form-control">로그인</button>
      </form>
      </c:if>
-     
+     <c:if test="${!empty mvo}">
+        <h4 class="card-title">${mvo.name}</h4>
+        <p class="card-text">회원님! Welcome</p>
+        <form action="/sp03/logout.do" method="post">
+          <button class="btn btn-sm btn-primary form-control">로그아웃</button>
+        </form>
+     </c:if>
   </div>
 </div>    
+
+
+
+
+
+
