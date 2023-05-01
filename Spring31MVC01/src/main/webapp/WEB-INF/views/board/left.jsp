@@ -8,7 +8,9 @@
     <c:if test="${!empty mvo}">
      <h4 class="card-title">${mvo.name}</h4>
      <p class="card-text">회원님! Welcome</p>
-     <button class="btn btn-primary btn-sm form-control">로그아웃</button>
+     <form action="/s01/logout.do" method="post">
+      <button class="btn btn-primary btn-sm form-control">로그아웃</button>
+     </form>
     </c:if>
     <c:if test="${empty mvo}">
     <h4 class="card-title">GUEST</h4>

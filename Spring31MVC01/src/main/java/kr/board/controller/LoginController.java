@@ -24,4 +24,14 @@ public class LoginController {
 		}
 		return "redirect:/list.do";
 	}
+	@RequestMapping("/logout.do")
+	public String logout(HttpSession session) {
+		session.invalidate(); // 무효화
+		return "redirect:/list.do";
+	}
 }
+
+
+
+
+
