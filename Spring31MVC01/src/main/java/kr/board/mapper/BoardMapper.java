@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Update;
 
 import kr.board.entity.Board;
+import kr.board.entity.Member;
 
 public interface BoardMapper {
 
@@ -22,6 +23,8 @@ public interface BoardMapper {
 	// 선택한 게시물을 1씩 증가하기
 	@Update("update board set count=count+1 where num=#{num}")
 	public void count(int num);
+	
+	public Member login(Member vo);
 }
 
 
