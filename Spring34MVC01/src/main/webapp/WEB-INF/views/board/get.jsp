@@ -16,6 +16,20 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){ 
+       //목록,수정,삭제,답글 중에서 어떤 버튼이 클릭 되었는지 판단?
+     var frm=$("#frm");		   
+     $("#list").on("click", function(){ 
+    	 frm.attr("action", "list.do"); // action="list.do"
+     });		   
+     
+     $("#remove").on("click", function(){
+    	 frm.attr("action", "remove.do"); // remove?num=1
+     });     
+     frm.submit();
+    });  
+  </script>
 </head>
 <body>
  
@@ -56,13 +70,20 @@
 		           </tr>
 		           <tr>
 		             <td colspan="2" style="text-align: center;">
-		                <button class="btn btn-sm btn-secondary" onclick="location.href='list.do'">목록</button>
-		                <button class="btn btn-sm btn-secondary" onclick="location.href='update.do?num=${vo.num}'">수정</button>
-		                <button class="btn btn-sm btn-secondary" onclick="location.href='remove.do?num=${vo.num}'">삭제</button>
-		                <button class="btn btn-sm btn-secondary">답글</button>
+		                <button type="button" id="list" class="btn btn-sm btn-secondary">목록</button>
+		                <c:if test="${!empty mvo}">
+		                 <c:if test="${mvo.username eq vo.username}">
+		                  <button type="button" id="modity" class="btn btn-sm btn-secondary">수정</button>
+		                  <button type="button" id="remove" class="btn btn-sm btn-secondary">삭제</button>
+		                 </c:if>
+		                 <button type="button" id="reply" class="btn btn-sm btn-secondary">답글</button>
+		                </c:if>
 		             </td>
 		           </tr>
 		         </table>
+		         <form id="frm" method="get">
+		           <input type="hidden" name="num" value="${vo.num}"/>
+		         </form>
 		    </div>
 		  </div>
 		  <div class="col-3">
