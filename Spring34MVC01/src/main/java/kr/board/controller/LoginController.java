@@ -24,5 +24,22 @@ public class LoginController {
 		}
 		return "redirect:/list.do"; // left.jsp(인증여부를 확인)
 	}
+	 @RequestMapping("/logout.do")
+	 public String logout(HttpSession session) {
+		 session.invalidate(); // 세션무효화(로그아웃)
+		 //session.removeAttribute("mvo");
+		 return "redirect:/list.do";
+	 }	 
 }
+
+
+
+
+
+
+
+
+
+
+
 

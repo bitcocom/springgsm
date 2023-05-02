@@ -6,7 +6,7 @@
 <div class="card" style="min-height: 500px;max-height: 1000px">
   <div class="card-body">
     <c:if test="${!empty mvo}">
-     <h4 class="card-title">${mvo.name}</h4>
+     <h4 class="card-title">${mvo.username}(${mvo.name})</h4>
      <p class="card-text">회원님! Welcome</p>
      <form action="/s01/logout.do" method="post">
       <button class="btn btn-primary btn-sm form-control">로그아웃</button>
