@@ -2,6 +2,7 @@
 drop table board;
 create table board(
   num int not null auto_increment, -- 번호(자동증가), 시퀀스
+  username varchar(50) not null, -- 회원아이디
   title varchar(100) not null, -- 제목
   content varchar(2000) not null, -- 내용
   writer varchar(50) not null, -- 작성자
@@ -39,4 +40,6 @@ insert into member(username, password, name, email)
 values('gsm03','gsm03','홍길동', 'hong@gsm.kr');
 
 select * from member;
+
+-- 관계설정SQL(1:N)
 
