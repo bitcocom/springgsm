@@ -49,7 +49,9 @@
 		               <tr>
 		                 <td colspan="2" style="text-align: center;">
 		                   <button type="button" class="btn btn-sm btn-primary" onclick="location.href='/sp32/list'">목록</button>
-		                   <button type="submit" class="btn btn-sm btn-primary">수정</button>
+		                   <c:if test="${mvo.username eq vo.username}">
+		                    <button type="submit" class="btn btn-sm btn-primary">수정</button>
+		                   </c:if>
 		                   <button type="reset" class="btn btn-sm btn-primary">취소</button>
 		                 </td>
 		               </tr>
