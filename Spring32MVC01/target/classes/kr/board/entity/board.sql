@@ -10,6 +10,24 @@ create table board(
   count int default 0,
   primary key(num)
 );
+
+create table reboard(
+  num int not null auto_increment,
+  username varchar(50) not null, 
+  title varchar(100) not null,
+  content varchar(2000) not null,
+  writer varchar(50) not null,
+  indate datetime default now(),
+  count int default 0,
+  bgroup int,
+  bseq int,
+  blevel int,
+  bdelete int default 0,
+  primary key(num)
+);
+
+
+
 insert into board(title, content, writer)
 values('스프링 게시판 연습','스프링 게시판 연습','관리자');
 insert into board(title, content, writer)
