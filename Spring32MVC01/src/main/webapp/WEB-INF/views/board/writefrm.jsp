@@ -36,6 +36,7 @@
 			    <h4 class="card-title">BOARD</h4>
 			    <p class="card-text">글쓰기</p>
 		         <form action="/sp32/write" method="post">
+		           <input type="hidden" name="username" value="${mvo.username}"/>
 		           <table class="table">
 		             <tr>
 		               <td style="width: 100px">제목</td>
@@ -47,7 +48,7 @@
 		             </tr>
 		             <tr>
 		               <td>작성자</td>
-		               <td><input type="text" name="writer" class="form-control"></td>
+		               <td><input type="text" name="writer" class="form-control" value="${mvo.name}" readonly></td>
 		             </tr>
 		             <tr>
 		              <td colspan="2" style="text-align: center;">

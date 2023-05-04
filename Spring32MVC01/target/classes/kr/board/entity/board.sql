@@ -1,5 +1,8 @@
+drop table board;
+
 create table board(
   num int not null auto_increment,
+  username varchar(50) not null, 
   title varchar(100) not null,
   content varchar(2000) not null,
   writer varchar(50) not null,
