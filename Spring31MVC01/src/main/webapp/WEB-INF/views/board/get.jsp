@@ -54,9 +54,13 @@
 		        <tr>
 		         <td colspan="2" align="center">
 		           <button class="btn btn-sm btn-primary" onclick="location.href='/s01/list.do'">목록</button>
-		           <button class="btn btn-sm btn-primary" onclick="location.href='/s01/update.do?num=${vo.num}'">수정</button>
-		           <button class="btn btn-sm btn-primary" onclick="location.href='/s01/remove.do?num=${vo.num}'">삭제</button>
-		           <button class="btn btn-sm btn-primary">답글</button>
+		           <c:if test="${!empty mvo}">
+		            <c:if test="${mvo.username eq vo.username}">
+		             <button class="btn btn-sm btn-primary" onclick="location.href='/s01/update.do?num=${vo.num}'">수정</button>
+		             <button class="btn btn-sm btn-primary" onclick="location.href='/s01/remove.do?num=${vo.num}'">삭제</button>
+		            </c:if> 
+		            <button class="btn btn-sm btn-primary">답글</button>
+		           </c:if>
 		         </td>
 		        </tr>
 		      </table>

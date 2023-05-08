@@ -44,7 +44,9 @@
 		             <textarea rows="10" name="content" class="form-control">${vo.content}</textarea>
 		           </div>
 		           <button type="button" class="btn btn-sm btn-primary" onclick="location.href='/s01/list.do'">목록</button>
-		           <button type="submit" class="btn btn-sm btn-primary">수정</button>
+		           <c:if test="${mvo.username eq vo.username}">
+		            <button type="submit" class="btn btn-sm btn-primary">수정</button>
+		           </c:if>
 		           <button type="reset" class="btn btn-sm btn-primary">취소</button>
 		        </form>
 		    </div>
