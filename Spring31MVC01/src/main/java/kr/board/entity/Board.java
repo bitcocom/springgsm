@@ -14,5 +14,10 @@ public class Board {
   private String writer;
   private Date indate;
   private int count;
+  // 답글에 필요한 멤버변수
+  private int bgroup; // 원글(부모글)과 답글을 하나로 묶을때
+  private int bseq; // 답글의 순서를 지정
+  private int blevel; // 답글의 들여쓰기
+  private int bdelete;// 정상:0, --update-->삭제:1
   
 }
