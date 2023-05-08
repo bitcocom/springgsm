@@ -1,5 +1,6 @@
 create table board(
   num int not null auto_increment,
+  username varchar(50) not null,
   title varchar(100) not null,
   content varchar(2000) not null,
   writer varchar(50) not null,
@@ -7,6 +8,8 @@ create table board(
   count int default 0,
   primary key(num)
 );
+
+drop table board;
 
 insert into board(title, content, writer)
 values('스프링게시판','스프링게시판','박매일');
