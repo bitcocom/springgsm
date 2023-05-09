@@ -10,6 +10,24 @@ create table board(
   count int default 0, -- 조회수
   primary key(num)
 );
+
+create table reply(
+  num int not null auto_increment, -- 번호(자동증가), 시퀀스
+  username varchar(50) not null, -- 회원아이디
+  title varchar(100) not null, -- 제목
+  content varchar(2000) not null, -- 내용
+  writer varchar(50) not null, -- 작성자
+  indate datetime default now(), -- sysdate
+  count int default 0, -- 조회수
+  bgroup int,
+  bseq int,
+  blevel int,
+  bdelete int default 0,  
+  primary key(num)
+);
+
+select IFNULL(max(bgroup)+1,0) as bgroup from reply;
+
 -- 게시물 저장
 insert into board(title, content, writer)
 values('스프링 게시판 만들기','스프링 게시판 만들기','관리자');
