@@ -19,20 +19,19 @@
   <script type="text/javascript">
     $(document).ready(function(){ 
        //목록,수정,삭제,답글 중에서 어떤 버튼이 클릭 되었는지 판단?
-     var frm=$("#frm");		   
-     $("#list").on("click", function(){ 
-    	 frm.attr("action", "list.do"); // action="list.do"
-     });		   
-     
-     $("#remove").on("click", function(){
-    	 frm.attr("action", "remove.do"); // remove?num=1
-     });  
-     
-     $("#modify").on("click", function(){
-    	 frm.attr("action", "update.do"); // update.do?num=1
-         frm.attr("method", "get");			 
+     var frm=$("#frm");	
+     $("button").click(function(){
+    	 var btn=$(this).data("btn"); // data-btn="list"
+    	 if(btn=="list"){
+    		 frm.attr("action", "list.do"); // action="list.do"
+    	 }else if(btn=="remove"){
+    		 frm.attr("action", "remove.do"); // remove?num=1
+    	 }else if(btn=="modify"){
+    		 frm.attr("action", "update.do"); // update.do?num=1
+             frm.attr("method", "get");		
+    	 }
+    	 frm.submit();
      });
-     frm.submit();
     });  
   </script>
 </head>
@@ -75,13 +74,13 @@
 		           </tr>
 		           <tr>
 		             <td colspan="2" style="text-align: center;">
-		                <button type="button" id="list" class="btn btn-sm btn-secondary">목록</button>
+		                <button type="button" data-btn="list" class="btn btn-sm btn-secondary">목록</button>
 		                <c:if test="${!empty mvo}">
 		                 <c:if test="${mvo.username eq vo.username}">
-		                  <button type="button" id="modity" class="btn btn-sm btn-secondary">수정</button>
-		                  <button type="button" id="remove" class="btn btn-sm btn-secondary">삭제</button>
+		                  <button type="button" data-btn="modify" class="btn btn-sm btn-secondary">수정</button>
+		                  <button type="button" data-btn="remove" class="btn btn-sm btn-secondary">삭제</button>
 		                 </c:if>
-		                 <button type="button" id="reply" class="btn btn-sm btn-secondary">답글</button>
+		                 <button type="button" data-btn="reply" class="btn btn-sm btn-secondary">답글</button>
 		                </c:if>
 		             </td>
 		           </tr>
