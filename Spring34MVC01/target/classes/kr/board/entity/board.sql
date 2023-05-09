@@ -26,6 +26,8 @@ create table reply(
   primary key(num)
 );
 
+select * from reply;
+
 select IFNULL(max(bgroup)+1,0) as bgroup from reply;
 
 -- 게시물 저장

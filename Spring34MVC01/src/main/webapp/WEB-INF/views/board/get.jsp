@@ -29,6 +29,9 @@
     	 }else if(btn=="modify"){
     		 frm.attr("action", "update.do"); // update.do?num=1
              frm.attr("method", "get");		
+    	 }else if(btn=="reply"){
+    		 frm.attr("action", "reply.do"); // reply.do?num=1
+             frm.attr("method", "get");		
     	 }
     	 frm.submit();
      });
