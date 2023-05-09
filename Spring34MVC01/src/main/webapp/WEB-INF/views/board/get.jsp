@@ -26,7 +26,12 @@
      
      $("#remove").on("click", function(){
     	 frm.attr("action", "remove.do"); // remove?num=1
-     });     
+     });  
+     
+     $("#modify").on("click", function(){
+    	 frm.attr("action", "update.do"); // update.do?num=1
+         frm.attr("method", "get");			 
+     });
      frm.submit();
     });  
   </script>
