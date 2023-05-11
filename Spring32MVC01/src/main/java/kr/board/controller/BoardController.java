@@ -7,6 +7,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.board.entity.Board;
@@ -63,11 +65,25 @@ public class BoardController {
 		// 수정이 성공된 후에 다시 /list, /get
 		return "redirect:/get?num="+vo.getNum();
 	}
-	@RequestMapping("/reply")
+	@GetMapping("/reply")
 	public String reply(int num, Model model) {
 		Board vo=mapper.get(num);
 		model.addAttribute("vo", vo);
 		return "board/reply"; // reply.jsp(답글UI)
+	}
+	@PostMapping("/reply")
+	public String reply(Board vo) { //num(부모글번호), title, content, writer
+		// 답글의 bgroup, bseq, blevel을 구하는 작업
+		// 1. 부모글의 정보를 가져오기
+		Board parent=mapper.get(vo.getNum()); // bgroup, bseq, blevel
+		// 2. 답글의 bgroup만들기
+		vo.setBgroup(parent.getBgroup());
+		// 3. 답글의 bseq만들기
+		vo.setBseq(parent.getBseq()+1);
+		// 4. 답글의 blevel만들기
+		vo.setBlevel(parent.getBlevel()+1);
+		
+		return null;
 	}
 }
 

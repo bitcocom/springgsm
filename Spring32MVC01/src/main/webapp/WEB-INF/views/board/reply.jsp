@@ -37,6 +37,7 @@
 			    <h4 class="card-title">BOARD</h4>
 			    <p class="card-text">답글쓰기</p>
 		         <form action="/sp32/reply" method="post">
+		           <input type="hidden" name="num" value="${vo.num}"/>
 		           <div class="form-group">
 		             <label>제목:</label>
 		             <input type="text" name="title" class="form-control" value="${vo.title}"/>
@@ -49,7 +50,7 @@
 		             <label>작성자:</label>
 		             <input type="text" name="writer" class="form-control" value="${mvo.name}" readonly/> 
 		           </div>
-		           <button type="button" class="btn btn-sm btn-primary">목록</button>
+		           <button type="button" class="btn btn-sm btn-primary" onclick="location.href='/sp32/list'">목록</button>
 		           <button type="submit" class="btn btn-sm btn-primary">답글</button>
 		           <button type="reset" class="btn btn-sm btn-primary">취소</button>
 		         </form>
