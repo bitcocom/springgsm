@@ -63,7 +63,12 @@ public class BoardController {
 		// 수정이 성공된 후에 다시 /list, /get
 		return "redirect:/get?num="+vo.getNum();
 	}
-	
+	@RequestMapping("/reply")
+	public String reply(int num, Model model) {
+		Board vo=mapper.get(num);
+		model.addAttribute("vo", vo);
+		return "board/reply"; // reply.jsp(답글UI)
+	}
 }
 
 

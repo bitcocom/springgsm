@@ -3,11 +3,12 @@
 <mapper namespace="kr.board.mapper.BoardMapper">
 
    <select id="getLists" resultType="kr.board.entity.Board">
-     select * from reboard order by num desc
+     select * from reboard order by bgroup desc, bseq asc
    </select>
    
    <insert id="write" parameterType="kr.board.entity.Board">
-     <selectKey keyProperty="bgroup" resultType="kr.board.entity.Board" order="BEFORE">
+     <selectKey keyProperty="bgroup" resultType="kr.board.entity.Board"
+                                     order="BEFORE">
        select IFNULL(max(bgroup)+1, 0) as bgroup from reboard
      </selectKey> 
      insert into reboard(username, title, content, writer, bgroup, bseq, blevel)
