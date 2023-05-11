@@ -15,12 +15,12 @@ public interface BoardMapper {
 	public void write(Board vo);
 	public Board get(int num);
 	
-	@Delete("delete from board where num=#{num}")
+	@Delete("delete from reboard where num=#{num}")
 	public void remove(int num);
 	
 	public void update(Board vo);
 	
-	@Update("update board set count=count+1 where num=#{num}")
+	@Update("update reboard set count=count+1 where num=#{num}")
     public void count(int num);	
 	
 	public Member login(Member vo);

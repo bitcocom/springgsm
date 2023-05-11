@@ -26,6 +26,9 @@ create table reboard(
   primary key(num)
 );
 
+select IFNULL(max(bgroup)+1, 0) as bgroup from reboard;
+
+select * from reboard;
 
 
 insert into board(title, content, writer)
