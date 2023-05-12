@@ -57,7 +57,9 @@
 			          </c:forEach>		         
 			        </tbody>
 			      </table>
-			      <button class="btn btn-primary btn-sm" onclick="location.href='writefrm'">글쓰기</button>
+			      <c:if test="${!empty mvo}">   
+			       <button class="btn btn-primary btn-sm" onclick="location.href='writefrm'">글쓰기</button>
+			      </c:if> 
 			  </div>
 			</div>  
 		  </div>
