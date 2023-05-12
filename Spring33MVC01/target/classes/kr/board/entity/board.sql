@@ -27,7 +27,8 @@ create table reply(
   primary key(num)
 )
 
-select * from board;
+select * from reply;
+select IFNULL(max(bgroup)+1, 0) as bgroup from reply;
 
 insert into board(title, content, writer)
 values('스프링 게시판 연습','스프링 게시판 연습','관리자');
