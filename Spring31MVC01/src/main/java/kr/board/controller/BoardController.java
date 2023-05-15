@@ -69,7 +69,12 @@ public class BoardController {
 	  //return "redirect:/list.do";
 	  return "redirect:/get.do?num="+vo.getNum();
   }
-  
+  @GetMapping("/reply.do")
+  public String reply(int num, Model model) { // 부모의 게시글 번호
+	  Board pvo=mapper.get(num); // pvo(부모의 정보)
+	  model.addAttribute("pvo", pvo);
+	  return "board/reply";	// reply.jsp  
+  }
 }
 
 

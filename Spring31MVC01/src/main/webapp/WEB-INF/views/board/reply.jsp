@@ -3,7 +3,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<% pageContext.setAttribute("newLineChar", "\n"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,40 +31,13 @@
 		    <jsp:include page="left.jsp"/>
 		  </div>
 		  <div class="col-lg-7">
-		    <div class="card-body">
-		      <h4 class="card-title">BOARD</h4>
-		      <p class="card-text">게시판 상세보기</p>
-		      <table class="table">
-		        <tr>
-		          <td style="width: 100px">제목</td>
-		          <td>${vo.title}</td>
-		        </tr>
-		        <tr>
-		          <td>내용</td>
-		          <td>${fn:replace(vo.content,newLineChar,"<br/>")}</td>
-		        </tr>
-		        <tr>
-		          <td>작성자</td>
-		          <td>${vo.writer}</td>
-		        </tr>
-		        <tr>
-		          <td>작성일</td>
-		          <td><fmt:formatDate value="${vo.indate}" pattern="yyyy-MM-dd"/></td>
-		        </tr>
-		        <tr>
-		         <td colspan="2" align="center">
-		           <button class="btn btn-sm btn-primary" onclick="location.href='/s01/list.do'">목록</button>
-		           <c:if test="${!empty mvo}">
-		            <c:if test="${mvo.username eq vo.username}">
-		             <button class="btn btn-sm btn-primary" onclick="location.href='/s01/update.do?num=${vo.num}'">수정</button>
-		             <button class="btn btn-sm btn-primary" onclick="location.href='/s01/remove.do?num=${vo.num}'">삭제</button>
-		            </c:if> 
-		            <button class="btn btn-sm btn-primary" onclick="location.href='/s01/reply.do?num=${vo.num}'">답글</button>
-		           </c:if>
-		         </td>
-		        </tr>
-		      </table>
-		    </div>
+		    <div class="card">
+		      <div class="card-body">		       
+		         <h4 class="card-title">BOARD</h4>
+			     <p class="card-text">게시판 답글작성</p>
+		          여기에 답글페이지 작성
+		      </div>
+		    </div> 
 		  </div>
 		  <div class="col-lg-3">
 		    <jsp:include page="right.jsp"/>

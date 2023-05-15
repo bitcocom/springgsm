@@ -25,7 +25,7 @@ create table reply(
 );
 
 select IFNULL(max(bgroup)+1, 0) as bgroup from reply;
-
+select * from reply;
 
 drop table reply;
 
