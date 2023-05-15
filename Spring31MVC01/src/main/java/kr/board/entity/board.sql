@@ -9,7 +9,25 @@ create table board(
   primary key(num)
 );
 
-drop table board;
+create table reply(
+  num int not null auto_increment,
+  username varchar(50) not null,
+  title varchar(100) not null,
+  content varchar(2000) not null,
+  writer varchar(50) not null,
+  indate datetime default now(),
+  count int default 0,
+  bgroup int,
+  bseq int,
+  blevel int,
+  bdelete int default 0,
+  primary key(num)
+);
+
+select IFNULL(max(bgroup)+1, 0) as bgroup from reply;
+
+
+drop table reply;
 
 insert into board(title, content, writer)
 values('스프링게시판','스프링게시판','박매일');

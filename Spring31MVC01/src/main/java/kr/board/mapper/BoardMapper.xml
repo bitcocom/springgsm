@@ -3,24 +3,27 @@
 <mapper namespace="kr.board.mapper.BoardMapper">
 
  <select id="getLists" resultType="kr.board.entity.Board">
-  select * from board order by num desc
+  select * from reply order by num desc
  </select> 
 
  <insert id="register" parameterType="kr.board.entity.Board">
-  insert into board(username,title, content, writer)
-  values(#{username},#{title},#{content},#{writer})
+  <selectKey order="BEFORE">
+    select IFNULL(max(bgroup)+1, 0) as bgroup from reply
+  </selectKey>
+  insert into reply(username,title, content, writer, bgroup, bseq, bdelete)
+  values(#{username},#{title},#{content},#{writer}, ? , 0, 0)
  </insert> 
  
  <select id="get" resultType="kr.board.entity.Board">
-   select * from board where num=#{num}
+   select * from reply where num=#{num}
  </select>
  
  <delete id="remove" parameterType="int">
-   delete from board where num=#{num}
+   delete from reply where num=#{num}
  </delete>
  
  <update id="update" parameterType="kr.board.entity.Board">
-   update board set title=#{title}, content=#{content}
+   update reply set title=#{title}, content=#{content}
    where num=#{num}
  </update>
 

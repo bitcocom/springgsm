@@ -21,7 +21,7 @@ public interface BoardMapper {
 	// 선택한 번호에 해당하는 게시글을 수정하기
 	public void update(Board vo);
 	// 선택한 게시물을 1씩 증가하기
-	@Update("update board set count=count+1 where num=#{num}")
+	@Update("update reply set count=count+1 where num=#{num}")
 	public void count(int num);
 	
 	public Member login(Member vo);
