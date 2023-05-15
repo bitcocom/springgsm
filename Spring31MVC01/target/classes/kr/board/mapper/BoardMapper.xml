@@ -11,7 +11,7 @@
              resultType="kr.board.entity.Board">
     select IFNULL(max(bgroup)+1, 0) as bgroup from reply
   </selectKey>
-  insert into reply(username,title, content, writer, bgroup, bseq, bdelete)
+  insert into reply(username,title, content, writer, bgroup, bseq, blevel)
   values(#{username},#{title},#{content},#{writer}, #{bgroup}, 0, 0)
  </insert> 
  
