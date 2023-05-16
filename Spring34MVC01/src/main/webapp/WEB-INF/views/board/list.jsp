@@ -53,14 +53,24 @@
 				           <c:if test="${vo.bdelete==0}">
 				             <c:forEach begin="1" end="${vo.blevel}">
                                <span style="padding-left: 20px"></span>
-                             </c:forEach> 
-				             <a href="get.do?num=${vo.num}">${vo.title}</a>
+                             </c:forEach>
+                             <c:if test="${vo.bseq==0}">   
+				              <a href="get.do?num=${vo.num}">${vo.title}</a>
+				             </c:if>
+				             <c:if test="${vo.bseq>0}">   
+				              ↘<a href="get.do?num=${vo.num}">Re:${vo.title}</a>
+				             </c:if>
 				           </c:if>
 				           <c:if test="${vo.bdelete==1}">
 				             <c:forEach begin="1" end="${vo.blevel}">
                                <span style="padding-left: 20px"></span>
                              </c:forEach>
-				             삭제된 게시물 입니다.
+				             <c:if test="${vo.bseq==0}">  
+				               삭제된 게시물 입니다.
+				             </c:if>
+				             <c:if test="${vo.bseq>0}">  
+				               ↘Re:삭제된 게시물 입니다.
+				             </c:if>
 				           </c:if>
 				        </td>
 				        <td>${vo.writer}</td>
