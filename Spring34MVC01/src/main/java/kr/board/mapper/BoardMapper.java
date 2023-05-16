@@ -25,6 +25,10 @@ public interface BoardMapper {
     public void count(int num);
     // 아이디와 비밀번호에 해당하는 사용자가 있는지 처리
     public Member login(Member vo);
+    // 답글의 bseq를 모두+1하기
+    public void replyUpdate(Board parent);
+    // 답글 저장하기
+    public void replyInsert(Board vo);
 }
 
 
