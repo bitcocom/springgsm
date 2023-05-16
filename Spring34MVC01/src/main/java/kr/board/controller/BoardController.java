@@ -73,6 +73,12 @@ public class BoardController { // new BoardController();
 		rttr.addAttribute("num", vo.getNum()); // ?num=10
 		return "redirect:/get.do"; // ?num=10
 	}
+	@GetMapping("/reply.do")
+	public String reply(int num, Model model) { // num=>원글(부모글)의 번호
+		Board vo=mapper.get(num);
+		model.addAttribute("vo", vo);
+		return "board/reply"; // reply.jsp
+	}
 }
 
 

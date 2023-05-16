@@ -18,9 +18,9 @@
    select * from reply where num=#{num} 
  </select>
 
- <delete id="remove" parameterType="int">
-   delete from reply where num=#{num}
- </delete>
+ <update id="remove" parameterType="int">
+   update reply set bdelete=1 where num=#{num}
+ </update>
  
  <select id="login" parameterType="kr.board.entity.Member" 
                     resultType="kr.board.entity.Member">
