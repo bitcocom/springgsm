@@ -49,7 +49,20 @@
 				      <c:forEach var="vo" items="${list}">
 				      <tr>
 				        <td>${vo.num}</td>
-				        <td><a href="get.do?num=${vo.num}">${vo.title}</a></td>
+				        <td>
+				           <c:if test="${vo.bdelete==0}">
+				             <c:forEach begin="1" end="${vo.blevel}">
+                               <span style="padding-left: 20px"></span>
+                             </c:forEach> 
+				             <a href="get.do?num=${vo.num}">${vo.title}</a>
+				           </c:if>
+				           <c:if test="${vo.bdelete==1}">
+				             <c:forEach begin="1" end="${vo.blevel}">
+                               <span style="padding-left: 20px"></span>
+                             </c:forEach>
+				             삭제된 게시물 입니다.
+				           </c:if>
+				        </td>
 				        <td>${vo.writer}</td>
 				        <td><fmt:formatDate value="${vo.indate}" pattern="yyyy-MM-dd"/></td>
 				        <td>${vo.count}</td>
