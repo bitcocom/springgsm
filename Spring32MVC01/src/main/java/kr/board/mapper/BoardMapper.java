@@ -15,7 +15,7 @@ public interface BoardMapper {
 	public void write(Board vo);
 	public Board get(int num);
 	
-	@Delete("delete from reboard where num=#{num}")
+	@Update("update reboard set bdelete=1 where num=#{num}")
 	public void remove(int num);
 	
 	public void update(Board vo);
