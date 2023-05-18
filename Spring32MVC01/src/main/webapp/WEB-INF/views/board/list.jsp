@@ -11,9 +11,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="resources/css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript">
+    function goMsg(){
+    	alert("삭제된 게시물 입니다.");
+    }
+  </script>
 </head>
 <body> 
 
@@ -53,8 +59,9 @@
 		                 <td>
 		                   <c:if test="${vo.bdelete==0 && vo.bseq > 0}">
 		                    <c:forEach begin="1" end="${vo.blevel}">
-		                      <span style="padding-left: 20px"></span>
+		                      <span style="padding-left: 10px"></span>
 		                    </c:forEach>
+		                    <i class="bi bi-arrow-return-right"></i>
 		                    <a href="/sp32/get?num=${vo.num}">Re:${vo.title}</a>
 		                   </c:if>
 		                   <c:if test="${vo.bdelete==0 && vo.bseq == 0}">
@@ -62,12 +69,13 @@
 		                   </c:if>
 		                   <c:if test="${vo.bdelete==1 && vo.bseq > 0}">
 		                    <c:forEach begin="1" end="${vo.blevel}">
-		                      <span style="padding-left: 20px"></span>
+		                      <span style="padding-left: 10px"></span>
 		                    </c:forEach>
-		                     <a href="#">Re:삭제된 게시물 입니다.</a>
+		                     <i class="bi bi-arrow-return-right"></i>
+		                     <a href="javascript:goMsg()">Re:삭제된 게시물 입니다.</a>
 		                   </c:if>
 		                   <c:if test="${vo.bdelete==1 && vo.bseq == 0}">
-		                     <a href="#">삭제된 게시물 입니다.</a>
+		                     <a href="javascript:goMsg()">삭제된 게시물 입니다.</a>
 		                   </c:if>
 		                 </td>
 		                 <td>${vo.writer}</td>
