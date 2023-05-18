@@ -52,12 +52,18 @@
 		                 <td>${vo.num}</td>
 		                 <td>
 		                   <c:if test="${vo.bdelete==0 && vo.bseq > 0}">
+		                    <c:forEach begin="1" end="${vo.blevel}">
+		                      <span style="padding-left: 20px"></span>
+		                    </c:forEach>
 		                    <a href="/sp32/get?num=${vo.num}">Re:${vo.title}</a>
 		                   </c:if>
-		                    <c:if test="${vo.bdelete==0 && vo.bseq == 0}">
+		                   <c:if test="${vo.bdelete==0 && vo.bseq == 0}">
 		                    <a href="/sp32/get?num=${vo.num}">${vo.title}</a>
 		                   </c:if>
 		                   <c:if test="${vo.bdelete==1 && vo.bseq > 0}">
+		                    <c:forEach begin="1" end="${vo.blevel}">
+		                      <span style="padding-left: 20px"></span>
+		                    </c:forEach>
 		                     <a href="#">Re:삭제된 게시물 입니다.</a>
 		                   </c:if>
 		                   <c:if test="${vo.bdelete==1 && vo.bseq == 0}">
