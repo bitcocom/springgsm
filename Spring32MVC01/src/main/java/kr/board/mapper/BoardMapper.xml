@@ -15,6 +15,11 @@
      values(#{username}, #{title},#{content},#{writer},#{bgroup}, 0, 0)
    </insert>
    
+   <insert id="replyInsert" parameterType="kr.board.entity.Board">
+     insert into reboard(username, title, content, writer, bgroup, bseq, blevel)
+     values(#{username}, #{title},#{content},#{writer},#{bgroup}, #{bseq}, #{blevel})
+   </insert>
+   
    <select id="get" parameterType="int" resultType="kr.board.entity.Board">
      select * from reboard where num=#{num}
    </select>
@@ -29,6 +34,11 @@
      select * from member 
      where username=#{username} and password=#{password}
    </select>
+   
+   <update id="replyUpdate" parameterType="kr.board.entity.Board">
+      update reboard set bseq=bseq+1 
+      where bgroup=#{bgroup} and bseq > #{bseq}
+   </update>
 </mapper>
 
 

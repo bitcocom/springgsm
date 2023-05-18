@@ -38,6 +38,7 @@
 			    <p class="card-text">답글쓰기</p>
 		         <form action="/sp32/reply" method="post">
 		           <input type="hidden" name="num" value="${vo.num}"/>
+		           <input type="hidden" name="username" value="${mvo.username}"/>
 		           <div class="form-group">
 		             <label>제목:</label>
 		             <input type="text" name="title" class="form-control" value="${vo.title}"/>

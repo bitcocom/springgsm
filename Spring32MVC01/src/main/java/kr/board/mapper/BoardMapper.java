@@ -24,6 +24,10 @@ public interface BoardMapper {
     public void count(int num);	
 	
 	public Member login(Member vo);
+	
+	public void replyUpdate(Board parent);
+	
+	public void replyInsert(Board vo);
 }
 
 

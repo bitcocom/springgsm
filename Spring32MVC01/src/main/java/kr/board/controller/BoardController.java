@@ -72,7 +72,7 @@ public class BoardController {
 		return "board/reply"; // reply.jsp(답글UI)
 	}
 	@PostMapping("/reply")
-	public String reply(Board vo) { //num(부모글번호), title, content, writer
+	public String reply(Board vo) { //num(부모글번호),username, title, content, writer
 		// 답글의 bgroup, bseq, blevel을 구하는 작업
 		// 1. 부모글의 정보를 가져오기
 		Board parent=mapper.get(vo.getNum()); // bgroup, bseq, blevel
@@ -82,8 +82,11 @@ public class BoardController {
 		vo.setBseq(parent.getBseq()+1);
 		// 4. 답글의 blevel만들기
 		vo.setBlevel(parent.getBlevel()+1);
-		
-		return null;
+		// 5. 부모의 bgroup과 같고 부모의 bseq보다 큰 답글의 순서를 뒤로 한칸씩 밀춘다.
+		mapper.replyUpdate(parent);
+		// 6. 답글을 저장
+		mapper.replyInsert(vo);		
+		return "redirect:/list";
 	}
 }
 

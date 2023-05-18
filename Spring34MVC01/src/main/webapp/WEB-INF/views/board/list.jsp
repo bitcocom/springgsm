@@ -52,7 +52,7 @@
 				        <td>
 				           <c:if test="${vo.bdelete==0}">
 				             <c:forEach begin="1" end="${vo.blevel}">
-                               <span style="padding-left: 20px"></span>
+                               <span style="padding-left: 10px"></span>
                              </c:forEach>
                              <c:if test="${vo.bseq==0}">   
 				              <a href="get.do?num=${vo.num}">${vo.title}</a>
@@ -63,7 +63,7 @@
 				           </c:if>
 				           <c:if test="${vo.bdelete==1}">
 				             <c:forEach begin="1" end="${vo.blevel}">
-                               <span style="padding-left: 20px"></span>
+                               <span style="padding-left: 10px"></span>
                              </c:forEach>
 				             <c:if test="${vo.bseq==0}">  
 				               삭제된 게시물 입니다.
