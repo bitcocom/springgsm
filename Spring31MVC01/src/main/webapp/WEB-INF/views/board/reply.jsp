@@ -36,6 +36,8 @@
 		         <h4 class="card-title">BOARD</h4>
 			     <p class="card-text">게시판 답글작성</p>
 		          <form action="/s01/reply.do" method="post">
+		             <input type="hidden" name="num" value="${pvo.num}"/>
+		             <input type="hidden" name="username" value="${mvo.username}"/>
 		             <div class="form-group">
 		               <label>제목:</label>
 		               <input type="text" name="title" class="form-control" value="${pvo.title}"/>
