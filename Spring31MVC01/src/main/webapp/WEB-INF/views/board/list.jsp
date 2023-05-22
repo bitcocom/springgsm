@@ -49,7 +49,26 @@
 				    <c:forEach var="board" items="${list}">
 				      <tr>
 				        <td>${board.num}</td>
-				        <td><a href="/s01/get.do?num=${board.num}">${board.title}</a></td>
+				        <td>
+				          <c:if test="${board.bdelete==0 && board.bseq==0}">
+				           <a href="/s01/get.do?num=${board.num}">${board.title}</a>
+				          </c:if>
+				          <c:if test="${board.bdelete==0 && board.bseq>0}">
+				           <c:forEach begin="1" end="${board.blevel}">
+				              <span style="padding-left: 15px"></span>
+				           </c:forEach>
+				             →<a href="/s01/get.do?num=${board.num}">Re:${board.title}</a>
+				          </c:if>
+				          <c:if test="${board.bdelete==1 && board.bseq==0}">
+				             <a href="#">삭제된 게시물 입니다.</a>
+				          </c:if>
+				          <c:if test="${board.bdelete==1 && board.bseq>0}">
+				             <c:forEach begin="1" end="${board.blevel}">
+				              <span style="padding-left: 15px"></span>
+				             </c:forEach>
+				             →<a href="#">Re:삭제된 게시물 입니다.</a>
+				          </c:if>
+				        </td>
 				        <td>${board.writer}</td>
 				        <td><fmt:formatDate value="${board.indate}" pattern="yyyy-MM-dd"/></td>
 				        <td>${board.count}</td>
