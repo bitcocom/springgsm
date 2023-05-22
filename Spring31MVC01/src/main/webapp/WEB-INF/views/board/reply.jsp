@@ -35,7 +35,23 @@
 		      <div class="card-body">		       
 		         <h4 class="card-title">BOARD</h4>
 			     <p class="card-text">게시판 답글작성</p>
-		          여기에 답글페이지 작성
+		          <form action="/s01/reply.do" method="post">
+		             <div class="form-group">
+		               <label>제목:</label>
+		               <input type="text" name="title" class="form-control" value="${pvo.title}"/>
+		             </div>
+		             <div class="form-group">
+		               <label>답글:</label>
+		               <textarea rows="7" name="content" class="form-control"></textarea>
+		             </div>		           
+		             <div class="form-group">
+		               <label>작성자:</label>
+		               <input type="text" name="writer" class="form-control" value="${mvo.name}" readonly/>
+		             </div>
+		             <button type="submit" class="btn btn-sm btn-primary">등록</button>
+		             <button type="reset" class="btn btn-sm btn-primary">취소</button>
+		             <button type="button" class="btn btn-sm btn-primary">목록</button> 
+		          </form>
 		      </div>
 		    </div> 
 		  </div>
