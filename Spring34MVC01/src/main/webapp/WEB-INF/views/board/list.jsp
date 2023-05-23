@@ -108,13 +108,13 @@
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Modal Heading</h4>
+        <h4 class="modal-title">메세지</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
       <!-- Modal body -->
       <div class="modal-body">
-        Modal body..
+        삭제된 게시물 입니다
       </div>
 
       <!-- Modal footer -->
