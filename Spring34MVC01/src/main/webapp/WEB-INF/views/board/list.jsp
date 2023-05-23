@@ -16,7 +16,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript">
     function goMsg(){
-       alert("삭제된 게시물 입니다.");	
+       //alert("삭제된 게시물 입니다.");
+    	$('#myModal').modal('show');
     }  
   </script>
 </head>
@@ -101,6 +102,28 @@
     </div> 
     <div class="card-footer">3-4(박매일)</div>
   </div>
+  <div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
 
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Modal body..
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
 </body>
 </html>
