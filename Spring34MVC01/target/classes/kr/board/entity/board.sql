@@ -26,6 +26,8 @@ create table reply(
   primary key(num)
 );
 
+select count(*) from reply;
+
 select * from reply;
 select * from reply order by bgroup desc, bseq asc limit 0, 10;
 select * from reply order by bgroup desc, bseq asc limit 10, 10;
