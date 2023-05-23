@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.board.entity.Board;
+import kr.board.entity.Criteria;
 import kr.board.mapper.BoardMapper;
 
 // Controller
@@ -25,8 +26,8 @@ public class BoardController { // new BoardController();
 	// 요청-->처리메서드 : 핸들러매핑(HandlerMapping)
 	// [게시판리스트보기 요청]이 오면 처리하는 [메서드]를 만들자
 	@RequestMapping("/list.do")
-	public String list(Model model) {
-		List<Board> list=mapper.getLists();
+	public String list(Criteria cri, Model model) {
+		List<Board> list=mapper.getLists(cri); //page=3, perPageNum=3
 		model.addAttribute("list", list);// 객체바인딩
 		// list.jsp 넘겨주는것(ViewResolver)
 		return "board/list"; // /WEB-INF/views/board/list.jsp

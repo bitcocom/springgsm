@@ -27,6 +27,9 @@ create table reply(
 );
 
 select * from reply;
+select * from reply order by bgroup desc, bseq asc limit 0, 10;
+select * from reply order by bgroup desc, bseq asc limit 10, 10;
+select * from reply order by bgroup desc, bseq asc limit 20, 10;
 
 select IFNULL(max(bgroup)+1,0) as bgroup from reply;
 
