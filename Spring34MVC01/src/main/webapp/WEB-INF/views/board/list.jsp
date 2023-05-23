@@ -14,6 +14,11 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript">
+    function goMsg(){
+       alert("삭제된 게시물 입니다.");	
+    }  
+  </script>
 </head>
 <body>
  
@@ -68,11 +73,11 @@
                                <span style="padding-left: 10px"></span>
                              </c:forEach>
 				             <c:if test="${vo.bseq==0}">  
-				               삭제된 게시물 입니다.
+				               <a href="javascript:goMsg()">삭제된 게시물 입니다.</a>
 				             </c:if>
 				             <c:if test="${vo.bseq>0}">  
 				               <i class="bi bi-arrow-return-right"></i>
-				               Re:삭제된 게시물 입니다.
+				               <a href="javascript:goMsg()">Re:삭제된 게시물 입니다.</a>
 				             </c:if>
 				           </c:if>
 				        </td>
