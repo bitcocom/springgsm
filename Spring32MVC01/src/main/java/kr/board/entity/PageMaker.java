@@ -27,7 +27,10 @@ public class PageMaker {
 	 if(tempEndPage<endPage) {
 			endPage=tempEndPage;		
 	 }
-	 
+	// 5.이전페이지 버튼(링크)존재 여부
+	 prev=(startPage==1) ? false : true;
+	// 6.다음페이지 버튼(링크)존재 여부
+	 next=(endPage<tempEndPage)? true : false;	 
    }
 }
 
