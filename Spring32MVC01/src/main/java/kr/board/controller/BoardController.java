@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.board.entity.Board;
+import kr.board.entity.Criteria;
 import kr.board.mapper.BoardMapper;
 
 // POJO
@@ -22,10 +23,10 @@ public class BoardController {
 	@Autowired
 	private BoardMapper mapper;
 	@RequestMapping("/list")
-	public String list(Model model) {
+	public String list(Criteria cri,Model model) {
 		// 여기에 List<Board>구조로 게시물 3개를 저장하고
 		// list.jsp로 넘기자
-		List<Board> list=mapper.getLists();
+		List<Board> list=mapper.getLists(cri);
 		// 객체바인딩
 	    model.addAttribute("list", list);		
 		return "board/list"; // EL(표현식,출력식) : ${list}
