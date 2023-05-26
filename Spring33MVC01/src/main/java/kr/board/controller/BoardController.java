@@ -74,6 +74,21 @@ public class BoardController {
 		model.addAttribute("pvo", pvo);//객체바인딩
 		return "board/reply"; // reply.jsp
 	}
+	
+	@PostMapping("/reply.do")
+	public String reply(Board vo) { // num(부모), username, title, content, writer
+		// 1. 부모의 bgroup, bseq, blevel의 정보 가져오기
+		Board pvo=mapper.get(vo.getNum());
+		// 2. 부모의 bgroup값을 답글의 bgroup에 저장
+		vo.setBgroup(pvo.getBgroup());
+		// 3. 부모의 bseq에 1을 더하여 답글의 bseq에 저장
+		vo.setBseq(pvo.getBseq()+1);
+		// 4. 부모의 blevel에 1을 더하여 답글의 blevel에 저장
+		vo.setBlevel(pvo.getBlevel()+1);
+		mapper.replyUpdate(pvo);
+				
+		return null;
+	}
 }
 
 

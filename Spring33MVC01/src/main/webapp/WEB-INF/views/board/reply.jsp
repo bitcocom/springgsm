@@ -36,10 +36,12 @@
 			    <h4 class="card-title">BOARD</h4>
 			    <p class="card-text">답글쓰기</p>
 			    <form action="/sp03/reply.do" method="post">
+			       <input type="hidden" name="num" value="${pvo.num}"/>
+			       <input type="hidden" name="username" value="${mvo.username}"/>
 			       <div class="form-group">
 			         <label>제목:</label>
 			         <input type="text" value="${pvo.title}" name="title" class="form-control"/>
-			       </div>
+			       </div>`
 			       <div class="form-group">
 			         <label>답글:</label>
 			         <textarea rows="7" name="content" class="form-control"></textarea>

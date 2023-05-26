@@ -22,10 +22,13 @@ public interface BoardMapper { // BoardMapper.xml
    public void update(Board vo);
    // 조회수 증가 메서드
    @Update("update reply set count=count+1 where num=#{num}")
-   public void count(int num);
-   
+   public void count(int num);   
    // 회원 로그인처리
    public Member login(Member vo);
+   // 답글의 bseq값을 모두 1씩 증가
+   public void replyUpdate(Board pvo); // bgroup, bseq
+   //답글 저장
+   public void replyInsert(Board vo);
 }
 
 
