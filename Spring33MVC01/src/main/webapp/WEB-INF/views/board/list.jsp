@@ -49,7 +49,20 @@
 			          <c:forEach var="vo" items="${list}">
 				          <tr>
 				            <td>${vo.num}</td>
-				            <td><a href="/sp03/get.do?num=${vo.num}">${vo.title}</a></td>
+				            <td>
+				              <c:if test="${vo.bdelete==0 && vo.bseq==0}">
+				                <a href="/sp03/get.do?num=${vo.num}">${vo.title}</a>
+				              </c:if>
+				              <c:if test="${vo.bdelete==0 && vo.bseq>0}">
+				                <a href="/sp03/get.do?num=${vo.num}">Re:${vo.title}</a>
+				              </c:if>
+				              <c:if test="${vo.bdelete==1 && vo.bseq==0}">
+				                <a href="#">삭제된 게시물 입니다.</a>
+				              </c:if>
+				              <c:if test="${vo.bdelete==1 && vo.bseq>0}">
+				                <a href="#">Re:삭제된 게시물 입니다.</a>
+				              </c:if>
+				            </td>
 				            <td>${vo.writer}</td>
 				            <td><fmt:formatDate pattern="yyyy-MM-dd" value="${vo.indate}"/></td>
 				            <td>${vo.count}</td>

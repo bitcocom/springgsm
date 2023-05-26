@@ -17,7 +17,7 @@ public interface BoardMapper { // BoardMapper.xml
    // 선택한 게시물정보 1개를 가져오는 메서드
    public Board get(int num);
    // 선택한 게시물을 삭제하는 메서드
-   @Delete("delete from reply where num=#{num}")
+   @Update("update reply set bdelete=1 where num=#{num}")
    public void remove(int num);
    public void update(Board vo);
    // 조회수 증가 메서드
