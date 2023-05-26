@@ -60,6 +60,9 @@ values('gsm03','gsm03','홍길동','hong@gsm,kr');
 
 select * from member;
 
+delete from reply;
+select * from reply;
+
 
 
 

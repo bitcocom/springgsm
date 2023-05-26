@@ -86,8 +86,9 @@ public class BoardController {
 		// 4. 부모의 blevel에 1을 더하여 답글의 blevel에 저장
 		vo.setBlevel(pvo.getBlevel()+1);
 		mapper.replyUpdate(pvo);
-		mapper.replyInsert(vo);		
-		return null;
+		mapper.replyInsert(vo);	
+		
+		return "redirect:/list.do";
 	}
 }
 

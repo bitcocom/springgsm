@@ -3,7 +3,7 @@
 <mapper namespace="kr.board.mapper.BoardMapper">
 
   <select id="getList" resultType="kr.board.entity.Board">
-     select * from reply order by num desc
+     select * from reply order by bgroup desc, bseq asc
   </select>
   
   <insert id="write" parameterType="kr.board.entity.Board">
