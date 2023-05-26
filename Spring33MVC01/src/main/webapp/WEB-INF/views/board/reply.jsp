@@ -2,8 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
-<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>   
-<% pageContext.setAttribute("newLineChar", "\n"); %>  
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>     
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,37 +34,24 @@
 			 <div class="card">
 			  <div class="card-body">
 			    <h4 class="card-title">BOARD</h4>
-			    <p class="card-text">게시판 상세보기</p>
-			      <table class="table">
-			        <tr>
-			          <td style="width: 100px">제목</td>
-			          <td>${vo.title}</td>
-			        </tr>
-			        <tr>
-			          <td>내용</td>
-			          <td>${fn:replace(vo.content,newLineChar,"<br/>")}</td>
-			        </tr>
-			        <tr>
-			          <td>작성자</td>
-			          <td>${vo.writer}</td>
-			        </tr>
-			        <tr>
-			          <td>작성일</td>
-			          <td><fmt:formatDate value="${vo.indate}" pattern="yyyy-MM-dd"/></td>
-			        </tr>
-			        <tr>
-			         <td colspan="2" style="text-align: center;">
-			           <button class="btn btn-primary btn-sm" onclick="location.href='/sp03/list.do'">목록</button>
-			           <c:if test="${!empty mvo}">
-			             <c:if test="${mvo.username eq vo.username}">
-			              <button class="btn btn-success btn-sm" onclick="location.href='/sp03/update.do?num=${vo.num}'">수정</button>
-			              <button class="btn btn-warning btn-sm" onclick="location.href='/sp03/remove.do?num=${vo.num}'">삭제</button>
-			             </c:if>
-			            <button class="btn btn-info btn-sm" onclick="location.href='/sp03/reply.do?num=${vo.num}'">답글</button>
-			           </c:if>
-			         </td>
-			        </tr>
-			      </table>
+			    <p class="card-text">답글쓰기</p>
+			    <form action="/sp03/reply.do" method="post">
+			       <div class="form-group">
+			         <label>제목:</label>
+			         <input type="text" value="${pvo.title}" name="title" class="form-control"/>
+			       </div>
+			       <div class="form-group">
+			         <label>답글:</label>
+			         <textarea rows="7" name="content" class="form-control"></textarea>
+			       </div>
+			       <div class="form-group">
+			         <label>작성자:</label>
+			         <input type="text" name="writer" class="form-control" value="${mvo.name}" readonly/>
+			       </div>
+			       <button type="submit" class="btn btn-sm btn-primary">등록</button>
+			       <button type="reset" class="btn btn-sm btn-primary">취소</button>
+			       <button type="button" class="btn btn-sm btn-primary">목록</button>
+			    </form>
 			  </div>
 			</div>  
 		  </div>

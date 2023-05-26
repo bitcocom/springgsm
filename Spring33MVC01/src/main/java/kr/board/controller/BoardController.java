@@ -67,6 +67,13 @@ public class BoardController {
 		// 수정 성공후 다시 상세보기페이지로 이동(/get.do?num=10)
 		return "redirect:/get.do?num="+vo.getNum();
 	}
+	
+	@GetMapping("/reply.do")
+    public String reply(int num, Model model) {
+		Board pvo=mapper.get(num);
+		model.addAttribute("pvo", pvo);//객체바인딩
+		return "board/reply"; // reply.jsp
+	}
 }
 
 
