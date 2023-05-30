@@ -90,6 +90,7 @@
 		         </table>
 		         <form id="frm" method="get">
 		           <input type="hidden" name="num" value="${vo.num}"/>
+		           <input type="hidden" name="page" value="${cri.page}"/>
 		         </form>
 		    </div>
 		  </div>

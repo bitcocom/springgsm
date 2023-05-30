@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -53,9 +54,10 @@ public class BoardController { // new BoardController();
 	}
 	
 	@RequestMapping("/get.do")  // ?num=5
-	public String get(@RequestParam("num") int num, Model model) {
+	public String get(@RequestParam("num") int num, Model model,@ModelAttribute("cri") Criteria cri) {
 	    Board vo=mapper.get(num);
 		model.addAttribute("vo",vo); //객체바인딩
+		//model.addAttribute("cri", cri);
 		//조회수 누적
 		mapper.count(num);
 		return "board/get"; // get.jsp : forward

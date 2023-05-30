@@ -6,7 +6,7 @@ import lombok.Data;
 public class PageMaker { //   1 2 3 4 5 6 7 8 10 ▶ 
 	private Criteria cri;// ◀ 11 12 13 
 	private int totalCount; // 전체게시글의수
-	private int displayPageNum=5;
+	private int displayPageNum=3;
 	private int startPage;
 	private int endPage;
 	private boolean prev; // 이전버튼(true, false)

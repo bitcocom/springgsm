@@ -62,11 +62,11 @@
                                <span style="padding-left: 10px"></span>
                              </c:forEach>
                              <c:if test="${vo.bseq==0}">   
-				              <a href="get.do?num=${vo.num}">${vo.title}</a>
+				              <a href="get.do?num=${vo.num}&page=${pm.cri.page}">${vo.title}</a>
 				             </c:if>
 				             <c:if test="${vo.bseq>0}">   
 				              <i class="bi bi-arrow-return-right"></i>
-				              <a href="get.do?num=${vo.num}">Re:${vo.title}</a>
+				              <a href="get.do?num=${vo.num}&page=${pm.cri.page}">Re:${vo.title}</a>
 				             </c:if>
 				           </c:if>
 				           <c:if test="${vo.bdelete==1}">
