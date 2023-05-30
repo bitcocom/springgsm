@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.board.entity.Board;
 import kr.board.entity.Criteria;
+import kr.board.entity.PageMaker;
 import kr.board.mapper.BoardMapper;
 
 // Controller
@@ -30,6 +31,12 @@ public class BoardController { // new BoardController();
 		List<Board> list=mapper.getLists(cri); //page=3, perPageNum=3
 		model.addAttribute("list", list);// 객체바인딩
 		// list.jsp 넘겨주는것(ViewResolver)
+		// 페이징처리에 필요한 PageMaker를 생성하기
+		PageMaker pm=new PageMaker();
+		pm.setCri(cri);
+		pm.setTotalCount(mapper.totalCount());
+		model.addAttribute("pm", pm);
+		
 		return "board/list"; // /WEB-INF/views/board/list.jsp
 	}
 	
