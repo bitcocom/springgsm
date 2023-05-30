@@ -91,11 +91,9 @@
 				  </table>
 				  <!-- 페이징 처리 하는 부분 -->
 				  <ul class="pagination justify-content-center">
-				   <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-				   <li class="page-item"><a class="page-link" href="#">1</a></li>
-				   <li class="page-item active"><a class="page-link" href="#">2</a></li>
-				   <li class="page-item"><a class="page-link" href="#">3</a></li>
-				   <li class="page-item"><a class="page-link" href="#">Next</a></li>
+				   <c:forEach var="page" begin="${pm.startPage}" end="${pm.endPage}">
+				    <li class="page-item ${pm.cri.page==page ? 'active' : ''}"><a class="page-link" href="#">${page}</a></li>
+				   </c:forEach>
 				  </ul>
 				  <c:if test="${!empty mvo}">
 				   <button class="btn btn-secondary btn-sm" onclick="location.href='register.do'">글쓰기</button>
