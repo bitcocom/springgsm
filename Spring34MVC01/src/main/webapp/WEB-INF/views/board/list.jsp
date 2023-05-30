@@ -91,9 +91,18 @@
 				  </table>
 				  <!-- 페이징 처리 하는 부분 -->
 				  <ul class="pagination justify-content-center">
+				   <!-- 이전 -->
+				   <c:if test="${pm.prev}">
+				    <li class="page-item"><a class="page-link" href="list.do?page=${pm.startPage-1}">Prev</a></li>
+				   </c:if>
+				   <!-- 페이지 번호 출력 -->
 				   <c:forEach var="page" begin="${pm.startPage}" end="${pm.endPage}">
-				    <li class="page-item ${pm.cri.page==page ? 'active' : ''}"><a class="page-link" href="#">${page}</a></li>
+				    <li class="page-item ${pm.cri.page==page ? 'active' : ''}"><a class="page-link" href="list.do?page=${page}">${page}</a></li>
 				   </c:forEach>
+				   <!-- 다음 -->
+				   <c:if test="${pm.next}">
+				    <li class="page-item"><a class="page-link" href="list.do?page=${pm.endPage+1}">Next</a></li>
+				   </c:if>
 				  </ul>
 				  <c:if test="${!empty mvo}">
 				   <button class="btn btn-secondary btn-sm" onclick="location.href='register.do'">글쓰기</button>
