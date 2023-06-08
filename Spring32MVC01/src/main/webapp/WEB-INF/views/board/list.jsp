@@ -90,7 +90,7 @@
 				  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
 				  
 				  <c:forEach var="page" begin="${pm.startPage}" end="${pm.endPage}">
-				   <li class="page-item ${pm.cri.page==page ? 'active' : ''}"><a class="page-link" href="#">${page}</a></li>
+				   <li class="page-item ${pm.cri.page==page ? 'active' : ''}"><a class="page-link" href="/sp32/list?page=${page}">${page}</a></li>
 				  </c:forEach>
 				  
 				  <li class="page-item"><a class="page-link" href="#">Next</a></li>
