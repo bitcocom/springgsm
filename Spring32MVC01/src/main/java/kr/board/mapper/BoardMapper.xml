@@ -41,6 +41,10 @@
       update reboard set bseq=bseq+1 
       where bgroup=#{bgroup} and bseq > #{bseq}
    </update>
+   
+   <select id="totalCount" resultType="int">
+     select count(*) from reboard 
+   </select>
 </mapper>
 
 

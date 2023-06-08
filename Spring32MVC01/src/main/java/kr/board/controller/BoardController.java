@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.board.entity.Board;
 import kr.board.entity.Criteria;
+import kr.board.entity.PageMaker;
 import kr.board.mapper.BoardMapper;
 
 // POJO
@@ -28,7 +29,12 @@ public class BoardController {
 		// list.jsp로 넘기자
 		List<Board> list=mapper.getLists(cri);
 		// 객체바인딩
-	    model.addAttribute("list", list);		
+	    model.addAttribute("list", list);	
+	    // PageMaker만들기
+	    PageMaker pm=new PageMaker();
+	    pm.setCri(cri);
+	    pm.setTotalCount(mapper.totalCount());
+	    model.addAttribute("pm", pm);	    
 		return "board/list"; // EL(표현식,출력식) : ${list}
 	}
 	@RequestMapping("/writefrm")
