@@ -38,6 +38,7 @@
 			    <p class="card-text">게시판 수정</p>
 		         <form action="/sp32/update" method="post">
 		            <input type="hidden" name="num" value="${vo.num}"/> 
+		            <input type="hidden" name="page" value="${cri.page}"/> 
 		            <table class="table">
 		               <tr>
 		                 <td>제목</td>

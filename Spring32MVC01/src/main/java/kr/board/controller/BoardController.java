@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.board.entity.Board;
 import kr.board.entity.Criteria;
@@ -57,30 +58,34 @@ public class BoardController {
 		return "board/get"; // get.jsp
 	}
 	@RequestMapping("/remove") // ?num=10
-	public String remove(int num, Criteria cri) {
+	public String remove(int num, Criteria cri, RedirectAttributes rttr) {
         mapper.remove(num);		
-		return "redirect:/list?page="+cri.getPage();
+        rttr.addAttribute("page", cri.getPage()); // ?page=5
+		return "redirect:/list";
 	}
 	@RequestMapping("/updatefrm") // ?num=10
-	public String updatefrm(int num, Model model) {
+	public String updatefrm(int num, Model model, @ModelAttribute("cri") Criteria cri) {
 		Board vo=mapper.get(num);
 		model.addAttribute("vo", vo);
 		return "board/update"; // update.jsp
 	}
 	@RequestMapping("/update") // num, title, content
-	public String update(Board vo) {
+	public String update(Board vo, Criteria cri, RedirectAttributes rttr) {
 		mapper.update(vo);
 		// 수정이 성공된 후에 다시 /list, /get
-		return "redirect:/get?num="+vo.getNum();
+		rttr.addAttribute("num", vo.getNum());
+		rttr.addAttribute("page", cri.getPage());
+		
+		return "redirect:/get";
 	}
 	@GetMapping("/reply")
-	public String reply(int num, Model model) {
+	public String reply(int num, Model model, @ModelAttribute("cri") Criteria cri) {
 		Board vo=mapper.get(num);
 		model.addAttribute("vo", vo);
 		return "board/reply"; // reply.jsp(답글UI)
 	}
 	@PostMapping("/reply")
-	public String reply(Board vo) { //num(부모글번호),username, title, content, writer
+	public String reply(Board vo, Criteria cri, RedirectAttributes rttr) { //num(부모글번호),username, title, content, writer
 		// 답글의 bgroup, bseq, blevel을 구하는 작업
 		// 1. 부모글의 정보를 가져오기
 		Board parent=mapper.get(vo.getNum()); // bgroup, bseq, blevel
@@ -94,6 +99,9 @@ public class BoardController {
 		mapper.replyUpdate(parent);
 		// 6. 답글을 저장
 		mapper.replyInsert(vo);		
+		
+		rttr.addAttribute("page", cri.getPage());
+		
 		return "redirect:/list";
 	}
 }
