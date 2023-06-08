@@ -62,10 +62,10 @@
 		                      <span style="padding-left: 10px"></span>
 		                    </c:forEach>
 		                    <i class="bi bi-arrow-return-right"></i>
-		                    <a href="/sp32/get?num=${vo.num}">Re:${vo.title}</a>
+		                    <a href="/sp32/get?num=${vo.num}&page=${pm.cri.page}">Re:${vo.title}</a>
 		                   </c:if>
 		                   <c:if test="${vo.bdelete==0 && vo.bseq == 0}">
-		                    <a href="/sp32/get?num=${vo.num}">${vo.title}</a>
+		                    <a href="/sp32/get?num=${vo.num}&page=${pm.cri.page}">${vo.title}</a>
 		                   </c:if>
 		                   <c:if test="${vo.bdelete==1 && vo.bseq > 0}">
 		                    <c:forEach begin="1" end="${vo.blevel}">

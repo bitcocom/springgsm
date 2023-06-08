@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -48,7 +49,7 @@ public class BoardController {
 		return "redirect:/list";
 	}
 	@RequestMapping("/get") // ?num=10
-	public String get(int num, Model model) {
+	public String get(int num, Model model, @ModelAttribute("cri") Criteria cri) {
 		Board vo=mapper.get(num);
 		model.addAttribute("vo", vo); // 객체바인딩
 		// 조회수 증가
@@ -56,9 +57,9 @@ public class BoardController {
 		return "board/get"; // get.jsp
 	}
 	@RequestMapping("/remove") // ?num=10
-	public String remove(int num) {
+	public String remove(int num, Criteria cri) {
         mapper.remove(num);		
-		return "redirect:/list";
+		return "redirect:/list?page="+cri.getPage();
 	}
 	@RequestMapping("/updatefrm") // ?num=10
 	public String updatefrm(int num, Model model) {
