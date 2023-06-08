@@ -87,13 +87,15 @@
 		          </table>
 		          
 				<ul class="pagination justify-content-center">
-				  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-				  
+				  <c:if test="${pm.prev}">
+				   <li class="page-item"><a class="page-link" href="/sp32/list?page=${pm.startPage-1}">Previous</a></li>
+				  </c:if>
 				  <c:forEach var="page" begin="${pm.startPage}" end="${pm.endPage}">
 				   <li class="page-item ${pm.cri.page==page ? 'active' : ''}"><a class="page-link" href="/sp32/list?page=${page}">${page}</a></li>
 				  </c:forEach>
-				  
-				  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+				  <c:if test="${pm.next}">
+				   <li class="page-item"><a class="page-link" href="/sp32/list?page=${pm.endPage+1}">Next</a></li>
+				  </c:if>
 				</ul>
 		          
 		          <c:if test="${!empty mvo}">
