@@ -30,6 +30,8 @@ public interface BoardMapper {
 	public void replyUpdate(Board pvo);
 	
 	public void replyInsert(Board vo);
+	
+	public int totalCount();
 }
 
 
