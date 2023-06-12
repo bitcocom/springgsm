@@ -15,7 +15,7 @@ public class Criteria {
   // 2page: select * from reply order by bgroup desc, bseq asc limit 10, 10
   // 3page: select * from reply order by bgroup desc, bseq asc limit 20, 10
   // select * from reply order by bgroup desc, bseq asc 
-  // limit ${startNum}, ${perPageNum}
+  // limit #{startNum}, #{perPageNum}
   public int getStartNum() {
 	  return (page-1)*perPageNum;
   }  
