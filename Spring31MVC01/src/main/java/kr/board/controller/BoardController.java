@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.board.entity.Board;
+import kr.board.entity.Criteria;
 import kr.board.mapper.BoardMapper;
 
 @Controller // POJO
@@ -21,8 +22,8 @@ public class BoardController {
   private BoardMapper mapper;	
   //1.리스트보기 요청이 오면 처리하는 메서드(HandlerMapping)
   @RequestMapping("/list.do")
-  public String list(Model model) {	  
-	  List<Board> list=mapper.getLists();	  
+  public String list(Criteria cri,Model model) {	  
+	  List<Board> list=mapper.getLists(cri);	  
 	  model.addAttribute("list", list);// 객체바인딩
 	  
 	  return "board/list";//WEB-INF/views/board/list.jsp

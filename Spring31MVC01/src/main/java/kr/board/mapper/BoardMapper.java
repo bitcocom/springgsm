@@ -6,12 +6,13 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Update;
 
 import kr.board.entity.Board;
+import kr.board.entity.Criteria;
 import kr.board.entity.Member;
 
 public interface BoardMapper {
 
 	// 게시판 전체리스트 가져오기
-	public List<Board> getLists();
+	public List<Board> getLists(Criteria cri);
 	//게시판 글쓰기 메서드
 	public void register(Board vo);
 	// 선택한 번호에 해당하는 게시글 한개(Board) 가져오기
