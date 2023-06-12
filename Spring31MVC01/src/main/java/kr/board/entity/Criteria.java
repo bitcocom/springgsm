@@ -8,7 +8,7 @@ public class Criteria {
   private int perPageNum;
   public Criteria() {
 	  this.page=1;
-	  this.perPageNum=10;// 3
+	  this.perPageNum=3;// 3
   }
   // 선택한 페이지에 해당하는 게시글의 시작번호 구하기
   // 1page: select * from reply order by bgroup desc, bseq asc limit 0, 10 
