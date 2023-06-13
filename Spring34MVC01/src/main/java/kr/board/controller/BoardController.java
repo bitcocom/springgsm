@@ -64,23 +64,26 @@ public class BoardController { // new BoardController();
 	}
 	
 	@RequestMapping("/remove.do") // ?num="20"
-	public String remove(int num) {
-        mapper.remove(num);        
+	public String remove(Criteria cri,int num, RedirectAttributes rttr) {
+        mapper.remove(num);       
+        rttr.addAttribute("page", cri.getPage());//?pgae=4    
 		return "redirect:/list.do";
 	}
 	
 	@GetMapping("/update.do") // ?num=10
-	public String update(int num, Model model) {
+	public String update(@ModelAttribute("cri") Criteria cri,int num, Model model) {
 		Board vo=mapper.get(num);
 		model.addAttribute("vo", vo);
-		return "board/update"; // update.jsp
+		//model.addAttribute("cri", cri); @ModelAttribute
+		return "board/update"; // update.jsp -> ${cri.page}
 	}
 	@PostMapping("/update.do") // num, title, content : VO(파라메터수집)
-	public String update(Board vo, RedirectAttributes rttr) {
+	public String update(Criteria cri,Board vo, RedirectAttributes rttr) {
 		mapper.update(vo);
 		// 수정후 다시 리스트페이지로 이동(/list.do)
 		// 수정후 다시 상세보기페이지로 이동(/get.do?num=10)
 		rttr.addAttribute("num", vo.getNum()); // ?num=10
+		rttr.addAttribute("page", cri.getPage());
 		return "redirect:/get.do"; // ?num=10
 	}
 	@GetMapping("/reply.do")

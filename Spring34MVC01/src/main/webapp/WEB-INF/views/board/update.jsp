@@ -36,6 +36,7 @@
 		      <p class="card-text">게시판 수정하기</p>
 		       <form action="update.do" method="post">
 		       <input type="hidden" name="num" value="${vo.num}"/>
+		       <input type="hidden" name="page" value="${cri.page}"/>		      
 		       <table class="table table-bordered">
 		         <tr>
 		           <td>제목</td>
