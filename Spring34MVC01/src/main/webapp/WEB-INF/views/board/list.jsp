@@ -99,6 +99,18 @@
 				      </c:forEach>
 				    </tbody>
 				  </table>
+				  <!-- 검색 form -->
+				  <div class="input-group mb-3">
+					  <select class="form-select" aria-label="Default select example">
+						  <option selected>Open this select menu</option>
+						  <option value="1">One</option>
+						  <option value="2">Two</option>
+						  <option value="3">Three</option>
+					  </select>
+					  <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+					  <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+				  </div>
+				  
 				  <!-- 페이징 처리 하는 부분 -->
 				  <ul class="pagination justify-content-center">
 				   <!-- 이전 -->
