@@ -6,6 +6,10 @@ import lombok.Data;
 public class Criteria {
    private int page; // 4, 5
    private int perPageNum; // 10
+   // 검색에서 필요한 변수
+   private int type;
+   private int keyword;
+   
    public Criteria() {
 	   this.page=1;
 	   this.perPageNum=3; // ?
