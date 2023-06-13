@@ -38,6 +38,7 @@
 		          <form action="reply.do" method="post">
 		            <input type="hidden" name="num" value="${vo.num}"/> 
 		            <input type="hidden" name="username" value="${mvo.username}"/>
+		            <input type="hidden" name="page" value="${cri.page}"/>
 		            <div class="form-group">
 		              <label>제목:</label>
 		              <input type="text" name="title" value="${vo.title}" class="form-control"/>

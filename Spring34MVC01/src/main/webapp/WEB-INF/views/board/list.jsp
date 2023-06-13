@@ -15,6 +15,16 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript">
+    $(document).ready(function(){
+    	$(".page-link").click(function(e){
+    		//alert("A tag click");
+    		e.preventDefault();
+    		var page=$(this).attr("href"); // href="4"
+    		//alert(page);
+    		$("#page").val(page);
+    		$("#frm").submit();    		
+    	});
+    }); 
     function goMsg(){
        //alert("삭제된 게시물 입니다.");
     	$('#myModal').modal('show');
@@ -93,15 +103,15 @@
 				  <ul class="pagination justify-content-center">
 				   <!-- 이전 -->
 				   <c:if test="${pm.prev}">
-				    <li class="page-item"><a class="page-link" href="list.do?page=${pm.startPage-1}">Prev</a></li>
+				    <li class="page-item"><a class="page-link" href="${pm.startPage-1}">Prev</a></li>
 				   </c:if>
 				   <!-- 페이지 번호 출력 -->
 				   <c:forEach var="page" begin="${pm.startPage}" end="${pm.endPage}">
-				    <li class="page-item ${pm.cri.page==page ? 'active' : ''}"><a class="page-link" href="list.do?page=${page}">${page}</a></li>
+				    <li class="page-item ${pm.cri.page==page ? 'active' : ''}"><a class="page-link" href="${page}">${page}</a></li>
 				   </c:forEach>
 				   <!-- 다음 -->
 				   <c:if test="${pm.next}">
-				    <li class="page-item"><a class="page-link" href="list.do?page=${pm.endPage+1}">Next</a></li>
+				    <li class="page-item"><a class="page-link" href="${pm.endPage+1}">Next</a></li>
 				   </c:if>
 				  </ul>
 				  <c:if test="${!empty mvo}">
@@ -110,6 +120,9 @@
 			  </div>
 			</div>		    
 		  </div>
+		  <form id="frm" action="list.do">
+		     <input type="hidden" id="page" name="page" value="${pm.cri.page}"/>
+		  </form>
 		  <div class="col-lg-3">
 		    <jsp:include page="right.jsp"/>
 		  </div>

@@ -87,13 +87,13 @@ public class BoardController { // new BoardController();
 		return "redirect:/get.do"; // ?num=10
 	}
 	@GetMapping("/reply.do")
-	public String reply(int num, Model model) { // num=>원글(부모글)의 번호
+	public String reply(@ModelAttribute("cri") Criteria cri, int num, Model model) { // num=>원글(부모글)의 번호
 		Board vo=mapper.get(num);
 		model.addAttribute("vo", vo);
 		return "board/reply"; // reply.jsp
 	}
 	@PostMapping("/reply.do")
-	public String reply(Board vo) { //num(부모의),username, title, content, writer, bgroup, bseq, blevel
+	public String reply(Criteria cri,Board vo, RedirectAttributes rttr) { //num(부모의),username, title, content, writer, bgroup, bseq, blevel
 		// 1. 부모의 정보 가져오기
 		Board parent=mapper.get(vo.getNum());
 		// 2. 부모의 bgroup값을->답글의 bgroup
@@ -106,6 +106,7 @@ public class BoardController { // new BoardController();
 		mapper.replyUpdate(parent);
 		// 6. 만들어진 답글을 저장
 		mapper.replyInsert(vo);
+		rttr.addAttribute("page", cri.getPage());
 		return "redirect:/list.do";
 	}
 }
