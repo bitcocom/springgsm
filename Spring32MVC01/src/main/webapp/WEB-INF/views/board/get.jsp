@@ -93,7 +93,7 @@
     		// 목록버튼클릭시
     		if(data=="list"){
     			frm.attr("action","/sp32/list");
-    		}else if(data="reply"){
+    		}else if(data=="reply"){
     			frm.attr("action","/sp32/reply");
     		}else if(data=="update"){
     			frm.attr("action","/sp32/updatefrm");
