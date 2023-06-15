@@ -56,12 +56,12 @@
 		           </tr>
 		           <tr>
 		             <td colspan="2" style="text-align: center;">
-		                 <button class="btn btn-sm btn-primary" onclick="location.href='/sp32/list?page=${cri.page}'">목록</button>
+		                 <button data-btn="list" class="btn btn-sm btn-primary" onclick="location.href='/sp32/list?page=${cri.page}'">목록</button>
 		               <c:if test="${!empty mvo}">
-		                 <button class="btn btn-sm btn-primary" onclick="location.href='/sp32/reply?num=${vo.num}&page=${cri.page}'">답글</button>
+		                 <button data-btn="reply" class="btn btn-sm btn-primary" onclick="location.href='/sp32/reply?num=${vo.num}&page=${cri.page}'">답글</button>
 		                <c:if test="${mvo.username eq vo.username}">
-		                 <button class="btn btn-sm btn-primary" onclick="location.href='/sp32/updatefrm?num=${vo.num}&page=${cri.page}'">수정</button>
-		                 <button class="btn btn-sm btn-primary" onclick="location.href='/sp32/remove?num=${vo.num}&page=${cri.page}'">삭제</button>
+		                 <button data-btn="update" class="btn btn-sm btn-primary" onclick="location.href='/sp32/updatefrm?num=${vo.num}&page=${cri.page}'">수정</button>
+		                 <button data-btn="remove" class="btn btn-sm btn-primary" onclick="location.href='/sp32/remove?num=${vo.num}&page=${cri.page}'">삭제</button>
 		                </c:if>
 		               </c:if>
 		             </td>
@@ -75,6 +75,11 @@
 		  </div>
 		</div>
     </div> 
+    <!-- form -->
+    <form id="frm">
+       <input type="hidden" name="page" value="${cri.page}"/>
+       <input type="hidden" name="num" value="${vo.num}"/>
+    </form>
     <div class="card-footer">
       광주소프트웨어마이스터고_3-2(박매일)
     </div>
@@ -82,7 +87,21 @@
   <!-- 자바스크립트 -->
   <script type="text/javascript">
     $(document).ready(function(){
-    	
+    	var frm=$("#frm");
+    	$("button").click(function(){
+    		var data=$(this).data("btn"); // data-btn="list"
+    		// 목록버튼클릭시
+    		if(data=="list"){
+    			frm.attr("action","/sp32/list");
+    		}else if(data="reply"){
+    			frm.attr("action","/sp32/reply");
+    		}else if(data=="update"){
+    			frm.attr("action","/sp32/updatefrm");
+    		}else if(data=="remove"){
+    			frm.attr("action","/sp32/remove");
+    		}
+    		frm.submit();
+    	});
     });  
   </script>
 </body>
