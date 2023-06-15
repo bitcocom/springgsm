@@ -101,13 +101,13 @@
 		        <!-- 페이징 처리 -->  
 				<ul class="pagination justify-content-center">
 				  <c:if test="${pm.prev}">
-				   <li class="page-item"><a class="page-link" href="/sp32/list?page=${pm.startPage-1}">Previous</a></li>
+				   <li class="page-item"><a class="page-link" href="${pm.startPage-1}">Previous</a></li>
 				  </c:if>
 				  <c:forEach var="page" begin="${pm.startPage}" end="${pm.endPage}">
-				   <li class="page-item ${pm.cri.page==page ? 'active' : ''}"><a class="page-link" href="/sp32/list?page=${page}">${page}</a></li>
+				   <li class="page-item ${pm.cri.page==page ? 'active' : ''}"><a class="page-link" href="${page}">${page}</a></li>
 				  </c:forEach>
 				  <c:if test="${pm.next}">
-				   <li class="page-item"><a class="page-link" href="/sp32/list?page=${pm.endPage+1}">Next</a></li>
+				   <li class="page-item"><a class="page-link" href="${pm.endPage+1}">Next</a></li>
 				  </c:if>
 				</ul>
 		          
@@ -126,6 +126,27 @@
       광주소프트웨어마이스터고_3-2(박매일)
     </div>
   </div>
-
+  <!-- form -->
+  <form id="frm" action="/sp32/list" method="post">
+    <input type="hidden" id="page" name="page" value="${pm.cri.page}"/>
+    <input type="hidden" name="type" value="${pm.cri.type}"/>
+    <input type="hidden" name="keyword" value="${pm.cri.keyword}"/>
+  </form>
+  <script type="text/javascript">
+    $(document).ready(function(){
+       	$(".page-link").click(function(e){
+       		e.preventDefault(); // a tag의 기능을 막는다.
+       		var page=$(this).attr("href");
+       		$("#page").val(page);
+       		$("#frm").submit();
+       	});
+    });   
+  </script> 
 </body>
 </html>
+
+
+
+
+
+
