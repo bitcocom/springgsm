@@ -89,12 +89,12 @@
 		        <form action="/sp32/list" method="post">
 				 <div class="input-group mb-3">
 				 <select class="form-select" name="type">
-					  <option selected>선택하세요</option>
-					  <option value="title">제목</option>
-					  <option value="content">내용</option>
-					  <option value="writer">작성자</option>
+					  <option>선택하세요</option>
+					  <option value="title" ${pm.cri.type=='title' ? 'selected' : ''}>제목</option>
+					  <option value="content" ${pm.cri.type=='content' ? 'selected' : ''}>내용</option>
+					  <option value="writer" ${pm.cri.type=='writer' ? 'selected' : ''}>작성자</option>
 				  </select> 
-				  <input type="text" class="form-control" name="keyword">
+				  <input type="text" class="form-control" name="keyword" value="${pm.cri.keyword}">
 				  <button class="btn btn-secondary" type="submit">검색</button>
 				 </div>
 		        </form>

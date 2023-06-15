@@ -31,7 +31,7 @@ public interface BoardMapper {
 	public void replyInsert(Board vo);
 	
 	//전체 게시글의 수를 구하는 메서드
-	public int totalCount();
+	public int totalCount(Criteria cri);
 }
 
 

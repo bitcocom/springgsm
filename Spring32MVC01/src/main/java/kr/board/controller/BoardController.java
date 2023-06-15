@@ -35,7 +35,7 @@ public class BoardController {
 	    // PageMaker만들기
 	    PageMaker pm=new PageMaker();
 	    pm.setCri(cri);
-	    pm.setTotalCount(mapper.totalCount());
+	    pm.setTotalCount(mapper.totalCount(cri));
 	    model.addAttribute("pm", pm);	    
 		return "board/list"; // EL(표현식,출력식) : ${list}
 	}
