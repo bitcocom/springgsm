@@ -6,6 +6,10 @@ import lombok.Data;
 public class Criteria {
   private int page;
   private int perPageNum; 
+  // 검색에 필요한 변수
+  private String type;
+  private String keyword;
+  
   // 초기화
   public Criteria() {
 	  page=1;

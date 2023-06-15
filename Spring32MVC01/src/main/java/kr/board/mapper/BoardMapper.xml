@@ -2,9 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="kr.board.mapper.BoardMapper">
 
+   <sql id="search">
+      <if test="type=='title'">
+        where title like concat('%',#{keyword},'%')
+      </if>
+      <if test="type=='content'">
+        where content like concat('%',#{keyword},'%')
+      </if>
+      <if test="type=='writer'">
+        where writer like concat('%',#{keyword},'%')
+      </if>
+   </sql>
    <select id="getLists" resultType="kr.board.entity.Board" 
                          parameterType="kr.board.entity.Criteria">
-     select * from reboard order by bgroup desc, bseq asc
+     select * from reboard 
+     <include refid="search"/> 
+     order by bgroup desc, bseq asc
      limit #{pageStart},#{perPageNum}   
    </select> 
    
@@ -42,8 +55,10 @@
       where bgroup=#{bgroup} and bseq > #{bseq}
    </update>
    
-   <select id="totalCount" resultType="int">
+   <select id="totalCount" resultType="int" 
+                           parameterType="kr.board.entity.Criteria">
      select count(*) from reboard 
+     <include refid="search"/>
    </select>
 </mapper>
 

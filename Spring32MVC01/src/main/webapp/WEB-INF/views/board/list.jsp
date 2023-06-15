@@ -86,13 +86,13 @@
 		             </tbody>
 		          </table>
 		        <!-- 검색 UI -->
-		        <form action="" method="post">
+		        <form action="/sp32/list" method="post">
 				 <div class="input-group mb-3">
 				 <select class="form-select" name="type">
 					  <option selected>선택하세요</option>
-					  <option value="1">제목</option>
-					  <option value="2">내용</option>
-					  <option value="3">작성자</option>
+					  <option value="title">제목</option>
+					  <option value="content">내용</option>
+					  <option value="writer">작성자</option>
 				  </select> 
 				  <input type="text" class="form-control" name="keyword">
 				  <button class="btn btn-secondary" type="submit">검색</button>
