@@ -109,7 +109,7 @@
 							  <option value="content">내용</option>
 						  </select>
 						  <input type="text" name="keyword" class="form-control" placeholder="검색어를 입력하세요">
-						  <button class="btn btn-secondary" type="button" id="button-addon2">검색</button>
+						  <button class="btn btn-secondary" type="submit" id="button-addon2">검색</button>
 					  </div>
 				  </form>
 				  <!-- 페이징 처리 하는 부분 -->

@@ -25,7 +25,7 @@ create table reply(
   bdelete int default 0,  
   primary key(num)
 );
-
+select * from reply;
 select count(*) from reply;
 
 select * from reply;

@@ -13,7 +13,6 @@
        where content like concat('%',#{keyword},'%')
     </if>
   </sql>
-
  <select id="getLists" resultType="kr.board.entity.Board" 
                        parameterType="kr.board.entity.Criteria">
     select * from reply 
