@@ -3,6 +3,7 @@ package kr.board.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import kr.board.entity.Board;
@@ -30,6 +31,9 @@ public interface BoardMapper { // BoardMapper.xml
    public void replyUpdate(Board pvo); // bgroup, bseq
    //답글 저장
    public void replyInsert(Board vo);
+   
+   @Select("select count(*) from reply")
+   public int totalCount();
 }
 
 

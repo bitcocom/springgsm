@@ -18,6 +18,18 @@ public class PageMaker {
   }
   // 페이지 리스트를 출력하기 위한 계산 메서드
   public void makePage() {
-	  
+	  // 1. endPage
+	  endPage=(int)(Math.ceil(cri.getPage()/(double)displayPageNum)*displayPageNum); 
+      // 2. startPage
+	  startPage=(endPage-displayPageNum)+1;
+	  // 3. endPage의 유효성을 체크
+	  int tmpEndPage=(int)(Math.ceil(totalCount/(double)cri.getPerPageNum()));
+	  if(endPage>tmpEndPage) {
+		  endPage=tmpEndPage;
+	  }
+	  // 4. Next
+	  next=(endPage<tmpEndPage) ? true : false;
+	  // 5. Prev
+	  prev=(startPage!=1) ? true : false;	  
   }
 }

@@ -76,6 +76,15 @@
 			          </c:forEach>		         
 			        </tbody>
 			      </table>
+			      <!-- 페이지 리스트 출력 -->
+			      <ul class="pagination">
+					  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+					  <li class="page-item"><a class="page-link" href="#">1</a></li>
+					  <li class="page-item"><a class="page-link" href="#">2</a></li>
+					  <li class="page-item"><a class="page-link" href="#">3</a></li>
+					  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+				</ul>
+			      
 			      <c:if test="${!empty mvo}">   
 			       <button class="btn btn-primary btn-sm" onclick="location.href='writefrm'">글쓰기</button>
 			      </c:if> 

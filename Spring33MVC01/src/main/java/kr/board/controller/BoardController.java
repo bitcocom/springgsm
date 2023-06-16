@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.board.entity.Board;
 import kr.board.entity.Criteria;
+import kr.board.entity.PageMaker;
 import kr.board.mapper.BoardMapper;
 
 @Controller
@@ -27,6 +28,12 @@ public class BoardController {
 		// Controller에서 View로 데이터를 넘기는 방법
 		List<Board> list=mapper.getList(cri);
 		model.addAttribute("list", list);
+		//페이지 처리 객체 생성
+		PageMaker pm=new PageMaker();
+		pm.setCri(cri);
+		pm.setTotalCount(mapper.totalCount());
+		model.addAttribute("pm", pm);
+		
 		return "board/list"; //->/WEB-INF/views/board/list.jsp:ViewResolver
 	}	
 	@RequestMapping("/writefrm")
